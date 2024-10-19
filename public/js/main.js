@@ -23,3 +23,7 @@ window.addEventListener('scroll', () => {
 setInterval(() =>{
   scrollLevel = window.scrollY;
 },1000)
+
+const redirectLogin = () => {
+  window.location.href = '/login';
+}

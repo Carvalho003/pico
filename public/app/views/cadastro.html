@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="icon" href="../../img/logo-pico-preta.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../css/root.css">
+    <link rel="stylesheet" href="../../css/pilar.css">
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+<body class="flex center">
+    <main class="container bg-primary between  flex row">
+        
+        <div class=" w-100 flex column a-center jf-start  form-space">
+            <div class="flex row center">
+            <div class="logo-nav">
+            </div>
+            
+            <span class="message">Bem vindo!</span>
+            </div>
+            
+            <form class="flex column" action="#" method="post">
+                <div class="input-field cadastro-input-field relative flex column">
+                    <input placeholder="Nome" type="text" id="ipt_nome">
+                    
+                </div>
+                <div class="input-field cadastro-input-field relative flex column">
+                    <input placeholder="Email" type="text" id="ipt_email">
+                    
+                </div>
+                <div class="input-field cadastro-input-field relative flex column">
+                    <input placeholder="Nascimento" type="text" id="ipt_nome">
+                    
+                </div>
+
+                <div class="input-field cadastro-input-field relative flex column">
+                    <input placeholder="Senha" type="password" id="ipt_password">
+                    
+                </div>
+                <div class="input-field cadastro-input-field relative flex column">
+                    <input placeholder="Confirme a Senha" type="password" id="ipt_password">
+                    
+                </div>
+                
+                <button>Cadastrar</button>
+                <span class="w-100 cadastrar">Possui uma conta? <span id="login" class="text-primary">Log in</span></span>
+            </form>
+        </div>
+        <div class="colagem flex center relative">
+            <div class="caixa relative">
+                <div class="quadrado banco absolute">
+
+                </div>
+                <div class="quadrado urso absolute">
+
+                </div>
+            </div>
+            <span class="absolute pico">Seu pico<br><span class="text-complementar">só que digital</span></span>
+        </div>
+    </main>
+</body>
+</html>
+
+<script>
+    login.onclick= () => {
+        window.location.href = '/login'
+    }
+</script>

@@ -1,0 +1,131 @@
+*{
+    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+     font-style: normal;
+}
+
+body{
+    height: 100vh;
+}
+
+.form-space{
+    width: 40%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 11px;
+    
+}
+
+.form-space .message{
+    font-weight: 500;
+    font-size: var(--medium-font);
+}
+
+.message-fade{
+    color: var(--fade-color);
+}
+
+.form-space form{
+    margin-top: 10%;
+    width: 80%;
+    gap: 10px;
+}
+
+.input-field input{
+    height: var(--input-height);
+    border: none;
+    outline: none;
+    border-bottom: 2px var(--fade-color) solid;
+    font-size: 20px;
+}
+
+.input-field label{
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s all;
+    
+}
+
+.input-field input:focus ~ label, input:valid ~label, input:invalid ~ label{
+    left: 0px;
+    top: -10px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: 0.3s all;
+    font-weight: 500;
+}
+
+.form-space form button{
+    height: 50px;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 11px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 5%;
+}
+
+.cadastrar{
+    text-align: center;
+    font-size: 14px;
+}
+
+.cadastrar span{
+    cursor: pointer;
+}
+
+.input-field{
+    margin-bottom: 20px;
+}
+
+.cadastro-input-field{
+    margin-bottom: 0;
+}
+
+.colagem{
+    width: 60%;
+
+}
+
+.caixa{
+    width: 70%;
+    height: 80%;
+}
+
+.quadrado{
+    height: 250px;
+    width: 250px;
+    
+    border-radius: 11px;
+}
+
+.urso{
+    bottom: 0;
+    right: 0;
+    background-image: url('../img/urso.jpg');
+    background-size: cover;
+}
+
+.banco{
+    background-image: url('../img/bacno.jpg');
+    background-size: cover;
+}
+
+.pico{
+    bottom: 0%;
+    left: 1%;
+    font-size: var(--fala-font);
+    font-family: "Bebas Neue", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pico span{
+    font-family: "Bebas Neue", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+

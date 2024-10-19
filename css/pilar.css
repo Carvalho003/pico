@@ -1,0 +1,457 @@
+.container-all{
+    width: 100%;
+    height: 90vh;
+    background-image: url('../img/fundo-pilar.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.header .nav-list{
+    background-color: #1E1E1E;
+}
+.nav-list{
+    list-style: none;
+    width: 60%;
+    
+    border-radius: 11px;
+
+}
+
+.nav-list .nav-item{
+    padding: 0px 8px;
+}
+
+.footer .nav-list li a{
+    color: #000;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    font-size: var(--medium-font);
+    color: #fff;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 200;
+     font-style: normal;
+}
+
+ .header .active{
+    background-color: var(--primary-color);
+    padding: 0px 5px;
+    border-radius: 5px;
+    
+}
+
+.footer{
+    padding: 2% 0%;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    z-index: 10;
+    
+}
+
+.flex{
+    display: flex;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.center{
+    justify-content: center; 
+    align-items: center;
+}
+
+.between{
+    justify-content: space-between;
+}
+
+.around{
+    justify-content: space-around;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.carrossel{
+    margin-top: 5%;
+}
+.como{
+background-image: url('../img/carrossel.jpg');
+}
+.foto{
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+}
+
+.foto-skatista{
+    width: 300px;
+    height: 300px;
+    border-radius: 11px;
+    top: 0;
+    right: 0;
+    background-image: url('../img/tiago.jpg');
+    background-size: cover;
+    background-position: 50%;
+}
+
+.nav button{
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 200;
+     font-style: normal;
+     height: var(--button-height);
+     width: var(--button-width);
+     font-size: var(--medium-font);
+     color: #fff;
+     background-color: var(--primary-color);
+     border: none;
+     border-radius: 11px;
+     cursor: pointer;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 1px solid transparent;
+	border-right: 80px solid transparent;
+	border-top: 100px solid #555;
+}
+
+.container{
+    width: 80%;
+    
+}
+
+
+.arte{
+    width: 55%;
+    border-radius: 11px;
+    height: 420px;
+    background-image: url('../img/mids.jpg');
+    background-size: cover;
+}
+
+.border{
+    border: 1px solid;
+}
+
+.bg-primary{
+    background-color: var(--primary-color);
+}
+
+.paragrafo{
+    width: 42%;
+    position: relative;
+    
+}
+
+.swiper-button-next:after, .swiper-button-prev:after{
+    color: var(--info-color);
+    
+}
+
+
+.profissionais-btns .swiper-button-prev:after{
+    visibility: initial;
+    color: #fff;
+}
+
+.profissionais-btns .swiper-button-next:after{
+    color: #fff;
+}
+
+.profissionais-btns .swiper-button-next{
+    right: 8%;
+}
+
+.profissionais-btns .swiper-button-prev{
+    left: 8%;
+}
+.next-prev-historia .swiper-button-next{
+    position: absolute;
+    right: 10%;
+    top: 70%;
+}
+
+.paginacao-historia-div .swiper-pagination-progressbar-fill {
+    background: var(--info-color); /* Cor da barra de progresso */
+    height: 10px;
+    border-radius: 11px !important;
+}
+
+.swiper-pagination-progressbar{
+    height: 10px !important;
+    width: 60% !important;
+    position: absolute !important;
+    left: 20% !important;
+    top: -25px !important;
+    border-radius: 11px !important;
+}
+
+.swiper-button-prev:after{
+    visibility: hidden;
+}
+
+.carrossel{
+    position: relative;
+}
+
+.text-black{
+    color: #000;
+}
+
+.lugares-cube{
+    width: 400px;
+    height: 400px;
+}
+
+.lugar-1{
+    background-image: url('../img//lugares/1-lugares.jpg');
+    background-size: cover;
+    border-radius: 11px;
+}
+
+.lugar-2{
+    background-image: url('../img//lugares/2-lugares.jpg');
+    background-size: cover;
+    border-radius: 11px;
+}
+
+.m-5per{
+    margin-top: 5%;
+}
+
+.mb-5per{
+    margin-bottom: 5%;
+}
+
+.texto-lugares{
+    width: 50%;
+}
+
+.texto-lugares  i{
+    cursor: pointer;
+    color: var(--info-color);
+}
+
+.reverse{
+    flex-direction: row-reverse;
+}
+
+.swiper-cube-shadow{
+    transform: none !important;
+}
+
+.text-info{
+    color: var(--info-color);
+}
+
+.lugar-3{
+    
+    border-radius: 11px;
+}
+
+.slide-lugares{
+    width: 400px;
+    height: 400px;
+    background-image: url('../img//lugares/3-lugares.jpg');
+    background-size: cover;
+    border-radius: 11px;
+    
+}
+
+.val-preto{
+    bottom: 55px;
+    right: -5%;
+}
+
+.valores-title{
+    margin: 5% 0%;
+}
+
+.val-branco{
+    top: 55px;
+    right: 5%;
+}
+
+.paginacao-historia-div{
+    position: absolute;
+    width: 100%;
+    display: flex;
+}
+
+.esporteFilosofia{
+    
+    padding: 5% 0%;
+}
+
+.rede{
+    margin-top: 5%;
+}
+
+.scrollHide{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.paragrafo p, .paragrafo p span{
+    font-size: var(--medium-font);
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 200;
+    font-style: normal;
+    
+    
+    margin-top: 70px;
+    
+}
+
+
+.redes span{
+    font-size: var(--title-font);
+}
+
+.align-end{
+    align-items: flex-end;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-nav{
+    width: 160px;
+    height: 92px;
+    background-image: url('../img/logo-pico-preta.png');
+    background-size: cover;
+}
+
+.arte-rayssa{
+    width: 60%;
+    height: 510px;
+    background-image: url('../img/arte-rayssa-2.png');
+    background-size: cover;
+    /* border: 1px solid; */
+}
+
+.valores-sec, .profissionais{
+    background-color: var(--dark-bg);
+}
+
+.group-triangle{
+    align-self: flex-start;
+    gap: 10px;
+}
+
+.swiperProfissionais .swiper-wrapper .swiper-slide{
+    width: 100%;
+    border:3px #fff solid;
+    border-radius: 11px;
+    padding: 50px 40px;
+    gap: 20px;
+}
+
+.swiperProfissionais{
+    width: 75%;
+    padding: 10px;
+}
+
+.group-falas{
+    font-size: var(--fala-font);
+    width: 64%;
+}
+
+.arte-mids{
+    width: 50%;
+    height: 540px;
+    background-image: url('../img/mid-edit.png');
+    background-size: cover;
+    /* border: 1px solid; */
+}
+
+.vs-sec{
+    background-image: url('../img/skt-pixo.png');
+    width: 30%;
+    background-size: cover;
+    margin: 5% 0%;
+}
+
+.text-danger{
+    color: var(--danger-color);
+}
+
+.text-esporte-desc{
+    width: 38%;
+    font-size: 22px !important;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fs-p{
+    font-size: var(--medium-font);
+}
+
+.fs-m{
+    font-size: var(--title-font);
+}
+
+.fs-g{
+    font-size: var(--big-font);
+}
+
+.text-white{
+    color: #fff;
+}
+
+.text-primary{
+    color: var(--primary-color);
+}
+
+.relative{
+    position: relative;
+}
+
+.text-esporte{
+    left: 7.5%;
+    bottom: 30px;
+}
+
+.text-filosofia{
+    right: 3%;
+    top: 30px;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.skate-span{
+    position: absolute;
+    right: 0;
+    font-size: var(--title-font);
+    top: -7%;
+    color: var(--primary-color);
+    margin-bottom: 7%;
+}
+
+.text-complementar{
+    color: var(--complementar-color);
+}

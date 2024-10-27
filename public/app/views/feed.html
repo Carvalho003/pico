@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="icon" href="../../img/logo-pico-preta.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../css/root.css">
+    <link rel="stylesheet" href="../../css/pilar.css">
+    <link rel="stylesheet" href="../../css/feed.css">
+
+    <link rel="stylesheet" href="../../css/modal.css">
+</head>
+
+<body class="corpo-feed flex row ">
+    <nav class="side-bar ">
+        <div class="side-nav flex column a-center">
+            <div class="foto_user foto-side"></div>
+
+            <div class="group-names flex column w-100 a-center jf-center">
+                <span class="user_nome">Hugo Carvalho</span>
+                <span class="user_name">@carvalsk8</span>
+            </div>
+            <nav class="nav-options flex a-center jf-center column">
+                <ul class="flex a-center column">
+                    <li class="active">
+                        <a class="flex row a-center" href=""><i class='bx bxs-home-alt-2'></i><span>Feed</span></a>
+                    </li>
+                    <li>
+                        <a class="flex row a-center" href=""><i class='bx bxs-bell' ></i><span>Notificações</span></a>
+                    </li>
+                    <li>
+                        <a class="flex row a-center" href="./perfil"><i class='bx bxs-user'></i><span>Perfil</span></a>
+                    </li>
+                    <li>
+                        <a class="flex row a-center" href=""><i class='bx bxs-wrench' ></i><span>Configurações</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            
+
+            <div class="logo-nav side-logo"></div>
+            
+        </div>
+    </nav>
+    <main class="posts-area a-center flex column">
+        <nav class="nav-head nav-feed flex between">
+            <li class="active">
+                <a href="#">FEED</a>
+            </li>
+            <div class="flex row">
+                <li>
+                    <a href="#">Popular</a>
+                </li>
+                <li class="active">
+                    <a href="#">Seguindo</a>
+                </li>
+            </div>
+        </nav>
+        <section class="area-posts flex column">
+            <div class="post flex column">
+
+                <div class="infos-user-post between a-center flex row">
+                    <div class="group-foto-nome-post a-center flex row">
+                        <div class="foto-user-post"></div>
+                        <div class="name-time flex column">
+                            <span id="nome_user">Sergio Sacani</span>
+                            <span id="tempo" class="text-fade">2 hours ago</span>
+                        </div>
+                    </div>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+                <div class="post-content flex column a-center">
+                    <p id="desc_post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates recusandae illum, quia iure magni repudiandae error deleniti nemo reprehenderit obcaecati culpa nam minus laborum quod fuga officiis quo ipsa.</p>
+                    <div onclick="carregarAnexos(this)" class="anexos_post">
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post flex center">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        
+
+                        
+                    </div>
+                </div>
+                <div class="post_interaction flex row a-center">
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bxs-like text-fade' ></i>
+                        <span>41</span>
+                    </div>
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bx-comment-dots text-fade'></i>
+                        <span>Comentar</span>
+                    </div>
+
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bx-share text-fade' ></i>
+                        <span>Compartilhar</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="post flex column">
+
+                <div class="infos-user-post relative between a-center flex row">
+                    
+                    <div class="group-foto-nome-post a-center flex row">
+                        <div class="foto-user-post"></div>
+                        <div class="name-time flex column">
+                            <span id="nome_user">Sergio Sacani</span>
+                            <span id="tempo" class="text-fade">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="relative" onclick="abrirOpcoesPublicacao(this)">
+                        <div class="absolute menu-pub ">
+                            <ul>
+                                <li>
+                                    <a href="#"><p>Ver Perfil de Sergio...</p></a>
+                                </li>
+                                <li>
+                                    <a href="">Compartilhar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
+                    </div>
+                </div>
+                <div class="post-content flex column a-center">
+                    <p id="desc_post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates recusandae illum, quia iure magni repudiandae error deleniti nemo reprehenderit obcaecati culpa nam minus laborum quod fuga officiis quo ipsa.</p>
+                    <div onclick="carregarAnexos(this)" class="anexos_post">
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        <div class="foto-post flex center">
+                        
+                        </div>
+                        <div class="foto-post">
+                        
+                        </div>
+                        
+
+                        
+                    </div>
+                </div>
+                <div class="post_interaction flex row a-center">
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bxs-like text-fade' ></i>
+                        <span>41</span>
+                    </div>
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bx-comment-dots text-fade'></i>
+                        <span>Comentar</span>
+                    </div>
+
+                    <div class="group-interaction-icon a-center flex row">
+                        <i class='bx bx-share text-fade' ></i>
+                        <span>Compartilhar</span>
+                    </div>
+                </div>
+
+            </div>
+           
+        </section>
+    </main>
+    <aside class="sugestion-area ">
+        <div class="sugestion">
+            <nav class="nav-head relative user-infos center">
+                <span id="user_name">@carvalsk8</span>
+                <div class="foto_user">
+                    
+                </div>
+                
+                <i onclick="abrirOpcoes()" class='bx bx-chevron-down'></i>
+                <div class="absolute menu-nav">
+                    <ul>
+                        <li>
+                            <a href="./perfil">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="">Configurações</a>
+                        </li>
+                        <li>
+                            <a href="./login">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </nav>
+            <div class="sugestions a-center flex column">
+                <span>Sugestões</span>
+                <div class="flex colum users-seguir ">
+                    <div class="group-users-seguir flex column">
+                        <div class="flex row">
+                            <div class="foto-users-seguir"></div>
+                            <p class="nome-user-seguir">Luan Cascaraiano </p>
+                            <button class="btn-seguir">Seguir</button>
+                        </div>
+                        <div class="flex row">
+                            <div class="foto-users-seguir"></div>
+                            <p class="nome-user-seguir">Luan Oliveira</p>
+                            <button class="btn-seguir">Seguir</button>
+                        </div>
+                        <div class="flex row">
+                            <div class="foto-users-seguir"></div>
+                            <p class="nome-user-seguir">Luan Oliveira</p>
+                            <button class="btn-seguir">Seguir</button>
+                        </div>
+                        <div class="flex row">
+                            <div class="foto-users-seguir"></div>
+                            <p class="nome-user-seguir">Luan Oliveira</p>
+                            <button class="btn-seguir">Seguir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="create-div flex column">
+                    <span>Criar</span>
+                    <span class="new-pub text-fade">Nova Publicação</span>
+                    <div onclick="createPub()" class="square-new div-abrir-modal flex a-center jf-center">
+                        <i class='bx bxs-plus-circle'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div id="backdrop" class="flex center">
+    <div  class="modal_publicacao p-10 modal" id="modal_publicacao">
+        <main class="body-modal  flex column  w-100 a-center">
+            <div class="text-area-group relative ">
+                <textarea  placeholder="Compartilhe algo..." rows="4" class="w-100 "  id="desc_post_create"></textarea>
+                <div class="absolute foto-user"></div>
+            </div>
+            <div class="archives-group jf-start  flex row a-center">
+                <div class="icon-desc flex row a-center">
+                    <i class='bx bx-paperclip' ></i>
+                    <span>Arquivo</span>
+                </div>
+                <div class="icon-desc flex row a-center">
+                    <i class='bx bxs-camera' ></i>
+                    <span>Imagem</span>
+                </div>
+                <div class="icon-desc flex row a-center">
+                    <i class='bx bxs-music' ></i>
+                    <span>Música</span>
+                </div>
+                <div class="icon-desc flex row a-center">
+                    <i class='bx bx-current-location' ></i>
+                    <span>Localização</span>
+                </div>
+            </div>
+            <div class="create-preview none anexos_post">
+                <div class="foto-post none">
+                        
+                </div>
+            </div>
+
+            <div class="footer-modal  flex jf-end ">
+                <button>publicar</button>
+            </div>
+
+        </main>
+
+    </div>
+    </div>
+</body>
+
+
+</html>
+
+<script src="../../js/posts_test.js"></script>
+
+<script src="../../js/modal-publicacao.js"></script>

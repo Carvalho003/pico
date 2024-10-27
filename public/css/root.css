@@ -18,6 +18,10 @@
     --info-color: #0047AB;
     --fade-color: #9A9595;
     --dark-bg: #1E1E1E;
+    --light-bg: #fff;
+    --dark-bg: #0E0505;
+    --dark-font: #000;
+    --light-font: #fff;
     --medium-font: 32px;
     --fala-font: 66px;
     --title-font: 96px;

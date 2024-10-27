@@ -1,0 +1,467 @@
+*{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+     font-style: normal;
+}
+
+body{
+    background-color: var(--light-bg);
+}
+
+.area-posts{
+    gap: 50px;
+}
+
+
+.side-nav, .sugestion{
+    width: 20%;
+    height: 100vh;
+    overflow-y: scroll;
+    position: fixed;
+    gap: 2%;
+    
+}
+
+.side-nav{
+    border-right: 1px solid var(--fade-color);
+}
+
+.sugestion{
+    border-left: 1px solid var(--fade-color);
+}
+
+.sugestion::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    display: none;
+  }
+
+.side-nav::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    display: none;
+  }
+
+  /* Removendo as setas */
+  .side-nav::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  /* Cor do fundo da barra de rolagem */
+  .side-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Cor do "thumb" da barra de rolagem */
+  .side-nav::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra */
+    border-radius: 10px; /* Cantos arredondados */
+  }
+
+  /* Cor da barra ao passar o mouse sobre ela */
+  .side-nav::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+.group-names .user_nome{
+    font-size: var(--medium-font);
+    color: var(--dark-font);
+    font-weight: 400;
+}
+
+.group-names .user_name{
+    font-size: 22px;
+    color: var(--fade-color);
+}
+
+.nav-options{
+    width: 100%;
+
+}
+
+.nav-options ul{
+    list-style: none;
+    width: 100%;
+    gap: 15px;
+}
+
+.nav-options ul li{
+    
+    width: 90%;
+    border-radius: 11px;
+    padding: 10px 10px !important;
+    
+    
+}
+
+.nav-options ul .active{
+    
+    width: 90%;
+    border-radius: 11px;
+    padding: 10px 10px !important;
+    background-color: var(--primary-color);
+    
+    
+}
+
+.nav-options ul .active a{
+    color: var(--light-bg) !important;
+}
+
+
+
+.nav-options ul li a{
+    color: var(--dark-font);
+    text-decoration: none;
+    gap: 5px;
+    font-size: 24px;
+} 
+
+.side-bar{
+    width: 20%;
+} 
+
+.posts-area{
+    width: 60%;
+}
+
+.sugestion-area{
+    width: 20%;
+}
+
+.nav-head{
+    height: 100px;
+    
+    display: flex;
+    align-items: center;
+
+    & .menu-nav{
+        right: 5%;
+        top: 73px;
+        z-index: 3;
+        background-color: var(--light-bg);
+        display: none;
+        border-radius:11px ;
+        box-shadow: 0px 4px 10px 5px rgba(158, 157, 157, 0.3);
+        animation: showMenu 0.1s linear;
+
+    }
+
+    & .menu-nav ul {
+        list-style: none;
+        animation: showMenu 0.1s linear;
+    }
+
+    & .menu-nav ul li:hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & .menu-nav ul li{
+        padding: 10px !important;
+        border-radius: 11px;
+    }
+
+    & .menu-nav ul li a{
+        text-decoration: none;
+        color: var(--dark-font);
+    }
+
+    &  .toggle{
+        display: block;
+    }
+}
+
+.user-infos{
+    font-size: 20px;
+    gap: 10px;
+}
+
+.user-infos i{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-feed{
+    padding: 10px 10px !important;
+    list-style: none;
+    width: 100%;
+    font-size: var(--medium-font);
+    align-items: center;
+}
+
+.active  a{
+    font-weight: 450;
+    color: var(--dark-font) !important;
+}
+
+.nav-feed li a{
+    text-decoration: none;
+    color: var(--fade-color);
+    
+}
+
+.nav-feed div{
+    gap: 20px;
+}
+
+.nav-feed div li a{
+    font-size: 22px;
+}
+
+.foto_user{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-image: url('../img/users/perfil/hugo.png');
+    background-size: cover;
+}
+
+.foto-side{
+    width: 200px;
+    height: 200px;
+    min-height: 200px;
+    
+    margin-top: 20px !important;
+    object-fit: cover !important;
+}
+
+.side-logo{
+  min-height: 92px;
+  margin: 30px 0px !important;
+}
+
+.sugestions{
+    padding: 10px 10px !important;
+}
+
+.sugestions span{
+    align-self: flex-start;
+    font-size: var(--medium-font);
+    font-weight: 400;
+}
+
+.users-seguir{
+    width: 100%;
+    gap: 10px;
+}
+
+.group-users-seguir{
+    width: 100%;
+    margin-top: 8% !important;
+    gap: 15px;
+}
+
+.group-users-seguir div{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foto-users-seguir{
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    border-radius: 100%;
+    background-image: url('../img/users/perfil/tiago.jpg');
+    background-size: cover;
+    background-position: 50%;
+}
+
+.nome-user-seguir{
+    font-size: 22px;
+    width: 50%;
+    height: 70px;
+    /* text-wrap: wrap; */
+    white-space: nowrap
+    ;
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    margin-left: 5px !important;
+}
+
+.btn-seguir{
+    height: 39px;
+    
+    font-size: 18px;
+    border: none;
+    border-radius: 11px;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    width: 65px;
+    cursor: pointer;
+}
+
+.create-div{
+    margin-top: 8% !important;
+    gap: 10px;
+}
+
+.create-div .new-pub{
+    font-size: 22px ;
+    
+
+}
+
+
+
+.square-new{
+    width: 100%;
+    border-radius: 11px;
+    border: 1px solid var(--fade-color);
+    height: 150px;
+
+
+}
+
+.square-new i{
+    color: var(--fade-color);
+    font-size: var(--title-font);
+    cursor: pointer;
+}
+
+.area-posts{
+    width: 95%;
+    
+    padding: 20px 20px !important;
+}
+
+.post{
+    border: 1px solid var(--primary-color);
+    padding: 20px 20px !important;
+    border-radius: 11px;
+    gap:10px;
+
+    & .menu-pub{
+        right: 0;
+        top: 40px;
+        background-color: var(--light-bg);
+        display: none;
+        border-radius:11px ;
+        box-shadow: 0px 4px 10px 5px rgba(158, 157, 157, 0.3);
+
+
+    }
+
+    & .menu-pub ul {
+        list-style: none;
+    }
+
+    & .menu-pub ul li:hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & .menu-pub ul li{
+        padding: 10px !important;
+        border-radius: 11px;
+    }
+
+    & .menu-pub ul li a{
+        text-decoration: none;
+        color: var(--dark-font);
+    }
+
+    & .toggle-pub{
+        display: block ;
+    }
+
+}
+
+.post_interaction{
+    gap: 3%;
+}
+
+.post-content {
+    font-size: 20px;
+    
+}
+
+.post-content p{
+    padding: 5px !important;
+}
+
+.infos-user-post i{
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.group-interaction-icon{
+    gap: 5px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.foto-user-post{
+    width: 55px;
+    height: 55px;
+    background-image: url('../img/users/perfil/mago.jpg');
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.name-time #nome_user{
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.name-time #tempo{
+    font-size: 15px;
+    
+}
+
+.anexos_post{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.anexos_post .foto-post{
+    width: 50%;
+    height: 342px;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    background-size: cover;
+    background-image: url('../img/2.jpg');
+    /* width: 100%; */
+    /* caso seja mais de uma foto tira-se o width:100% */
+    
+    
+}
+
+.blur{
+    filter: blur(2px);
+    opacity: 0.8;
+}
+
+.maisNumero-div{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+.maisNumero{
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+    text-align: center;
+}
+ 
+ 
+.maisNumero-div > *:not(.maisNumero) {
+    filter: blur(2px);
+    background-color: #555;
+}
+
+@keyframes showMenu {
+    from{
+        height: 0px;
+        opacity: 0;
+    }to{    
+        height: 166px;
+        opacity: 1;
+    }
+
+}

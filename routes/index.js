@@ -14,4 +14,12 @@ router.get('/cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/app/views', 'cadastro.html'));
 })
 
+router.get('/feed', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/app/views/', 'feed.html'));
+})
+
+router.get('/perfil', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/app/views/', 'perfil.html'));
+})
+
 module.exports = router;

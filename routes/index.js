@@ -22,4 +22,12 @@ router.get('/perfil', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/app/views/', 'perfil.html'));
 })
 
+router.get('/configuracoes', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/app/views', 'configuracoes.html'));
+})
+
+router.get('/test-inputmask', (req, res) => {
+    res.sendFile(path.join(__dirname, '../node_modules', 'inputmask', 'dist', 'inputmask.min.js'));
+  });
+
 module.exports = router;

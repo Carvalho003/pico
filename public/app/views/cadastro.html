@@ -28,30 +28,30 @@
             <span class="message">Bem vindo!</span>
             </div>
             
-            <form class="flex column" action="#" method="post">
+            <form class="flex column" id="form_cadastro"  method="post">
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Nome" type="text" id="ipt_nome">
+                    <input placeholder="Nome" name="nome" type="text" id="ipt_nome">
                     
                 </div>
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Email" type="text" id="ipt_email">
+                    <input placeholder="Email" name="email" type="text" id="ipt_email">
                     
                 </div>
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Nascimento" type="text" id="ipt_nome">
+                    <input  placeholder="Nascimento" name="dtNasc" type="text" id="ipt_nasc">
                     
                 </div>
 
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Senha" type="password" id="ipt_password">
+                    <input placeholder="Senha" name="password" type="password" id="ipt_password">
                     
                 </div>
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Confirme a Senha" type="password" id="ipt_password">
+                    <input placeholder="Confirme a Senha" type="password" id="ipt_password_confirm">
                     
                 </div>
                 
-                <button>Cadastrar</button>
+                <button type="button" onclick="cadastrar()">Cadastrar</button>
                 <span class="w-100 cadastrar">Possui uma conta? <span id="login" class="text-primary">Log in</span></span>
             </form>
         </div>
@@ -75,3 +75,14 @@
         window.location.href = '/login'
     }
 </script>
+
+
+
+
+<script src="/test-inputmask"></script>
+<script  src="../../js/Cadastro/cadastrar.js"></script>
+<script src="../../js/Cadastro//mascara.js"></script>
+
+
+
+<!-- joaopedpaula -->

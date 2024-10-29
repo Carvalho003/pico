@@ -2,7 +2,7 @@
     width: 58%;
     
     
-    background-color: var(--light-font);
+    background-color: var(--light-bg);
     outline: none;
     border: none;
     border-radius: 11px;
@@ -11,7 +11,7 @@
     
 }
 
-#backdrop{
+#backdrop, .backdrop{
     position: fixed;
     display:none;
     justify-content: center;
@@ -22,6 +22,74 @@
     animation: showModal 0.5s linear;
     
 }
+
+.modal-username{
+    width: 40%;
+    
+    padding: 20px !important;
+    & input{
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--primary-color);
+        height: 40px;
+        outline: none;
+        padding: 10px !important;
+        color: var(--dark-font);
+        font-size: 22px;
+        margin-top: 2vh !important;
+    }
+    & button{
+        width: 20%;
+        margin-top: 2vh !important;
+        height: 35px;
+        border: none;
+        color: var(--light-font);
+        background-color: var(--primary-color);
+        font-size: 22px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}
+
+.modal-list{
+    width: 40%;
+    max-width: 60%;
+    max-height: 90vh;
+    padding: 20px !important;
+    overflow-y: scroll;
+    & #list-title{
+        font-weight: 450;
+    }
+    & i{
+        cursor: pointer;
+    }
+    & .lista{
+        margin-top: 2vh !important;
+        gap: 15px;
+    }
+    & .foto-infos{
+        gap: 15px;
+    }
+    & .foto-user{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url('../img/users/perfil/mago.jpg');
+        background-size: cover;
+    }
+    & .mostrar{
+        align-self: center;
+    }
+
+
+}
+
+.modal-list::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    display: none;
+  }
+
 
 
 .archives-group{
@@ -46,8 +114,10 @@
     font-size: 22px;
     height: fit-content;
     resize: none;
+    color: var(--dark-font);
     outline: none;
     border-radius: 11px;
+    background-color: transparent;
 
 }
 

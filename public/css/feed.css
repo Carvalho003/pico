@@ -9,6 +9,7 @@
 
 body{
     background-color: var(--light-bg);
+    color: var(--dark-font);
 }
 
 .area-posts{
@@ -107,7 +108,7 @@ body{
 }
 
 .nav-options ul .active a{
-    color: var(--light-bg) !important;
+    color: var(--light-font) !important;
 }
 
 
@@ -289,7 +290,7 @@ body{
     border: none;
     border-radius: 11px;
     background-color: var(--primary-color);
-    color: var(--light-bg);
+    color: var(--light-font);
     width: 65px;
     cursor: pointer;
 }
@@ -366,6 +367,32 @@ body{
     & .toggle-pub{
         display: block ;
     }
+    & .comentario{
+        gap: 10px;
+
+        & span{
+            font-weight: 450;
+        }
+    }
+
+    & .post-coments{
+        gap: 20px;
+        border: 1px solid var(--primary-color);
+        border-radius: 11px;
+        padding: 10px !important;
+        & span{
+            font-weight: 450;
+        }
+
+        & .foto-user{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url('../img/users/perfil/hugo.png');
+            background-size: cover;
+        }
+    }
+
 
 }
 

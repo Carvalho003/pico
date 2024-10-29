@@ -5,6 +5,11 @@
     
 }
 
+body{
+    color: var(--dark-font);
+    background-color: var(--light-bg);
+}
+
 .nome-infos{
     margin-top: 40px;
     gap: 10%;

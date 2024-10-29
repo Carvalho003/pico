@@ -1,0 +1,80 @@
+body{
+    background-color: var(--light-bg);
+    color: var(--dark-font);
+}
+
+
+.head-config{
+    font-size: 28px;
+    & .meus-dados-icon, .tema-switch{
+        gap: 5px;
+    }
+    & i{
+        cursor: pointer;
+    }
+    & select{
+        height: 90%;
+        width: 130px;
+        font-size: 24px;
+        text-transform: uppercase;
+        text-decoration: none;
+        -webkit-appearance: none !important;
+        text-align: center;
+        color: var(--dark-font);
+        background-color: transparent;
+        border-radius: 6px;
+        border-color: var(--primary-color);
+        outline: none;
+
+    }
+}
+
+.config-content{
+    border: 1px solid var(--primary-color);
+    border-radius: 11px;
+    padding: 20px !important;
+    font-size: 26px;
+    gap: 3vh;
+    
+
+    & .direita{
+        width: 300px;
+        align-items: flex-end;
+    }
+    & .ultimo-texto{
+        margin-bottom: 4vh !important;
+    }
+    & .linha-infos{
+        border-bottom: 1px solid var(--fade-color);
+        
+        
+    }
+    & .ultima-linha{
+        border-bottom: none;
+        margin-bottom: 4vh !important;
+    }
+
+    & .danger-zone{
+        border: 1px solid var(--danger-color);
+        border-radius: 11px;
+        padding: 20px !important;
+        gap: 2vh;
+        & button{
+            width: 30%;
+            height: 40px;
+            border: 1px solid var(--danger-color);
+            border-radius: 6px;
+            background-color: transparent;
+            font-size: 20px;
+            color: var(--danger-color);
+            cursor: pointer;
+        }
+
+        & span{
+            color: var(--danger-color);
+        }
+        
+    }
+
+
+}

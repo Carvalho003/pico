@@ -70,6 +70,7 @@ body{
     font-size: var(--medium-font);
     color: var(--dark-font);
     font-weight: 400;
+    text-align: center;
 }
 
 .group-names .user_name{
@@ -164,6 +165,8 @@ body{
         border-radius: 11px;
     }
 
+
+
     & .menu-nav ul li a{
         text-decoration: none;
         color: var(--dark-font);
@@ -172,11 +175,30 @@ body{
     &  .toggle{
         display: block;
     }
+
+    & i {
+        cursor: pointer;
+    }
+}
+
+#span_mostrar_mais{
+    cursor: pointer;
+    margin-top: 10px !important;
+}
+
+.modal-search{
+    min-height: 50vh;
+    width: 35% !important;
 }
 
 .user-infos{
     font-size: 20px;
     gap: 10px;
+}
+
+.btn-seguindo{
+    background-color: #fff !important;
+    color: var(--primary-color) !important;
 }
 
 .user-infos i{
@@ -480,6 +502,27 @@ body{
 .maisNumero-div > *:not(.maisNumero) {
     filter: blur(2px);
     background-color: #555;
+}
+
+#modal_search{
+    display: flex;
+}
+
+#modal_search #list-title{
+    font-size: 22px ;
+}
+
+.input-search{
+    margin-left: 5% !important;
+    width: 300px;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    outline: none;
+    color: var(--dark-font);
+    font-size: 20px;
+    
 }
 
 @keyframes showMenu {

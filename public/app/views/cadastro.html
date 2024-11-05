@@ -47,11 +47,12 @@
                     
                 </div>
                 <div class="input-field cadastro-input-field relative flex column">
-                    <input placeholder="Confirme a Senha" type="password" id="ipt_password_confirm">
+                    <input placeholder="Confirme a Senha" type="password" name="confirmacao" id="ipt_password_confirm">
                     
                 </div>
                 
                 <button type="button" onclick="cadastrar()">Cadastrar</button>
+                <span id="span_erro" class="text-danger" style="text-align: center;"></span>
                 <span class="w-100 cadastrar">Possui uma conta? <span id="login" class="text-primary">Log in</span></span>
             </form>
         </div>

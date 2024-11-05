@@ -1,9 +1,9 @@
 const modalUsername = document.getElementById('backdrop-username');
 
-const closeModal = document.getElementById('close-username');
+// const closeModal = document.getElementById('close-username');
 
-closeModal.onclick = () =>{
+// closeModal.onclick = () =>{
     
-    modalUsername.style.display = 'none';
-}
+//     modalUsername.style.display = 'none';
+// }
 

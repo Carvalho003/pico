@@ -27,7 +27,7 @@
             </div>
             <span class="message">Bem vindo de volta!</span>
             <span class="message-fade">Insira suas credenciais</span>
-            <form class="flex column" action="#" method="post">
+            <form id="form_login" class="flex column"  method="post">
                 <div class="input-field relative flex column">
                     <input type="email" id="ipt_email">
                     <label for="Email" class="absolute">Email</label>
@@ -40,7 +40,8 @@
                     <input type="checkbox">
                     <span>Lembre de mim</span>
                 </div>
-                <button>Log in</button>
+                <span id="span_erro" class="text-danger"></span>
+                <button type="button" onclick="login()">Log in</button>
                 <span class="w-100 cadastrar">Ainda não tem uma conta? <span id="cadastrar" class="text-primary">Cadastre-se</span></span>
             </form>
         </div>
@@ -53,3 +54,5 @@
         window.location.href = '/cadastro'
     }
 </script>
+
+<script src="../../js/Login/login.js"></script>

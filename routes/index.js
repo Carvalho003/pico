@@ -18,7 +18,7 @@ router.get('/feed', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/app/views/', 'feed.html'));
 })
 
-router.get('/perfil', (req, res) => {
+router.get('/perfil/:id', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/app/views/', 'perfil.html'));
 })
 

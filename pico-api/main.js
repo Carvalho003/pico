@@ -6,7 +6,11 @@ const PORTA_SERVIDOR = process.env.PORTA;
 const app = express();
 
 
-const userRoutes = require('./routes/users/index');
+const userRoutes = require('./src/routes/users/index');
+
+const seguidoresRoutes = require('./src/routes/seguidores/index')
+
+const postsRoutes = require('./src/routes/posts/index')
 
 app.use(express.json());
 
@@ -18,7 +22,11 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use('/', userRoutes);
+app.use('/api/users', userRoutes);
+
+app.use('/api/seguidores', seguidoresRoutes);
+
+app.use('/api/posts', postsRoutes);
 
 
 

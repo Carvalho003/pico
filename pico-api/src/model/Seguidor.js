@@ -15,6 +15,64 @@ const checkSeguir = async (seguido_id, seguidor_id) => {
 } 
 
 
+const searchSeguindoByUserId = async(search, limit, userId, userLogadoId) => {
+    try{
+        console.log(userLogadoId)
+        const [result] = await connectionBanco.query(`SELECT user.id, user.userName,  user.foto,
+                                            CASE 
+                                            WHEN (SELECT COUNT(subseg.seguidor_id) FROM user AS subuser
+                                            JOIN seguidor subseg
+                                            ON subuser.id = subseg.seguidor_id AND subseg.seguidor_id = ${userLogadoId} AND subseg.seguido_id = s.seguido_id AND subseg.status = 1
+                                            ) > 0
+                                            THEN 'Segue'
+                                            ELSE 'Não Segue'
+                                            END AS Segue
+                                            FROM user 
+                                            JOIN seguidor s
+                                            ON user.id = s.seguido_id and s.seguidor_id = ${userId}
+                                            JOIN user user_seguidor
+                                            ON s.seguidor_id  = user_seguidor.id AND s.status =1
+                                            where user.id <> ${userId} AND (user.userName LIKE '%${search}%' OR user.nome LIKE '%${search}%') LIMIT ${limit};`)
+    return result;                                            
+            
+    }catch(e) {
+        return {
+            message: 'Erro interno nos servidor',
+            error: e
+        }
+    }
+}
+
+
+
+const searchSeguidoresByUserId = async(search, limit, userId, userLogadoId) => {
+    try{
+        const [result] = await connectionBanco.query(`SELECT user.id, user.userName,  user.foto,
+                                            CASE 
+                                            WHEN (SELECT COUNT(subseg.seguidor_id) FROM user AS subuser
+                                            JOIN seguidor subseg
+                                            ON subuser.id = subseg.seguidor_id AND subseg.seguidor_id = ${userLogadoId} AND subseg.seguido_id = s.seguido_id AND subseg.status = 1
+                                            WHERE subuser.id <> ${userLogadoId}) > 0
+                                            THEN 'Segue'
+                                            ELSE 'Não Segue'
+                                            END AS Segue
+                                            FROM user 
+                                            JOIN seguidor s
+                                            ON user.id = s.seguidor_id and s.seguido_id = ${userId}
+                                            JOIN user user_seguido
+                                            ON s.seguido_id  = user_seguido.id AND s.status =1
+                                            where user.id <> ${userId} AND (user.userName LIKE '%${search}%' OR user.nome LIKE '%${search}%') LIMIT ${limit};`)
+    return result;                                            
+            
+    }catch(e) {
+        return {
+            message: 'Erro interno nos servidor',
+            error: e
+        }
+    }
+}
+
+
 const getCountSeguidoresById = async (id) =>{
     try{
         const [result] = await connectionBanco.query(`SELECT COUNT(s.seguido_id) AS seguidores FROM user as usuario
@@ -107,11 +165,15 @@ const deixarSeguir = async (seguido_id, seguidor_id) => {
 }
 
 
+
+
 module.exports = {
     checkSeguir,
     updateSeguir,
     insertSeguir,
     deixarSeguir,
     getCountSeguidoresById,
-    getCountSeguindoById
+    getCountSeguindoById,
+    searchSeguindoByUserId,
+    searchSeguidoresByUserId
 }

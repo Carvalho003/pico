@@ -6,6 +6,7 @@ const postModel = require('../model/Post')
 
 const store = async (req, res) =>{
      const { nome, email, dtNasc, password } = req.body;
+     
 
     if (nome && email && dtNasc && password) {
         //validations

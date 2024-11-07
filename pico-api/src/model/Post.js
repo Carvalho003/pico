@@ -48,8 +48,7 @@ ON p.id = a.post_id
 WHERE 
 u.id = ${userId}
 GROUP BY p.descricao, p.created_at, p.id
-ORDER BY p.created_at DESC;
-;`);
+ORDER BY p.created_at DESC`);
             return result;
 
     }catch (e) {

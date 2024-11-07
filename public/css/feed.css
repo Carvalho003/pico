@@ -237,7 +237,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    background-image: url('../img/users/perfil/hugo.png');
+    background-image: url('../img/users/perfil/default.png');
     background-size: cover;
 }
 
@@ -410,7 +410,7 @@ body{
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-image: url('../img/users/perfil/hugo.png');
+            background-image: url('../img/users/perfil/default.png');
             background-size: cover;
         }
     }
@@ -445,7 +445,7 @@ body{
 .foto-user-post{
     width: 55px;
     height: 55px;
-    background-image: url('../img/users/perfil/mago.jpg');
+    background-image: url('../img/users/perfil/default.png');
     background-size: cover;
     border-radius: 100%;
     cursor: pointer;

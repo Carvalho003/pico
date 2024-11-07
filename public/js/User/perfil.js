@@ -60,6 +60,7 @@ fetch(`http://localhost:3001/api/posts/${id}`, {
     }
 }).then(res => res.json()).then(data => {
     console.log(data);
+    const elementosCarregarAnexos = [];
     let qtd = 0;
     if(data.length){
         qtd = data.length
@@ -68,7 +69,11 @@ fetch(`http://localhost:3001/api/posts/${id}`, {
             html += `<div class="post post-perfil flex column">
                     <div class="infos-user-post between a-center flex row">
                         <div class="group-foto-nome-post a-center flex row">
-                            <div style="background-image: url('${user.foto}')" class="foto-user-post"></div>
+                            <div` 
+                            if(user.foto){
+                            html += ` style="background-image: url('${user.foto}')" `
+                            }
+                            html += ` class="foto-user-post"></div>
                             <div class="name-time flex column">
                                 <span id="nome_user">${user.nome}</span>
                                 <span id="tempo" class="text-fade">${publicacao.tempo}</span>
@@ -80,26 +85,20 @@ fetch(`http://localhost:3001/api/posts/${id}`, {
                         <p id="desc_post">${publicacao.descricao}</p>`
                         if(publicacao.anexos != 'SEM ANEXO'){
                         
-                            html += `<div onclick="carregarAnexos(this)" class="anexos_post">
-                            <div class="foto-post">
+                            html += `<div id="carregar${publicacao.id}" onclick="carregarAnexos(this)" class="anexos_post">`
+                            publicacao.anexos.map(anexo => {
                             
-                            </div>
-                            <div class="foto-post">
+                                html += `<div class="foto-post"></div>`
+
+                                })
                             
-                            </div>
-                            <div class="foto-post">
-                            
-                            </div>
-                            <div class="foto-post flex center">
-                            
-                            </div>
-                            <div class="foto-post">
-                            
-                            </div>
+                            html += `</div>`
+
+                             elementosCarregarAnexos.push(`carregar${publicacao.id}`)
                             
 
                             
-                        </div>`
+                       
                         }
                         
                     html += `</div>
@@ -123,6 +122,12 @@ fetch(`http://localhost:3001/api/posts/${id}`, {
         })
         
         posts_div.innerHTML = html
+        elementosCarregarAnexos.map(elementoCarregarAnexos =>{
+            const elementoEmHtml = document.getElementById(elementoCarregarAnexos)
+
+            console.log(elementoCarregarAnexos)
+            carregarAnexos(elementoEmHtml)
+        })
 }
 infosQuant[0].querySelectorAll('span')[1].innerText = qtd
 

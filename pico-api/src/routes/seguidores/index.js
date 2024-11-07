@@ -13,5 +13,12 @@ router.get('/count/seguindo/:userId', async (req,res) =>{
     controller.countSeguindoByUserId(req, res);
 })
  
+router.post('/seguindo/:userId/:userLogadoId', async (req,res) => {
+    controller.getSeguindoByUserId(req, res)
+})
+
+router.post('/seguidores/:userId/:userLogadoId', async (req,res) => {
+    controller.getSeguidoresByUserId(req,res);
+})
 
 module.exports = router;

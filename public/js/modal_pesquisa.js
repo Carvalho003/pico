@@ -38,7 +38,7 @@ const search = async() => {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(data => {
-
+        console.log(data)
         
         let message = '';
         if(!data.message){
@@ -61,7 +61,7 @@ const search = async() => {
                             message += `<button onclick="unfollow(${dados.id})" style="width:90px !important" class="btn-seguir btn-seguindo">Seguindo</button>`
                         }
 
-                        message += `<button onclick="seguir(${dados.id})" style="" class="btn-seguir">Perfil</button>
+                        message += `<button onclick="perfil(${dados.id})" style="" class="btn-seguir">Perfil</button>
                         </div>
                         </div>`;
                 }
@@ -120,4 +120,8 @@ const unfollow = async(id) => {
     }).then(res => res.json()).then(() => {
         search()
     })
+}
+
+const perfil = id =>{
+    window.location.href = `/perfil/${id}`;
 }

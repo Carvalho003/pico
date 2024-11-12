@@ -1,10 +1,10 @@
-const connectionBanco = require('../database/connection');
+const database = require('../database/config');
 
 
 
-const getPublicacoesById = async (userId) =>{
-    try{
-        const [result] = await connectionBanco.query(`SELECT  
+const getPublicacoesById =  (userId) =>{
+    
+        const sql = `SELECT  
  p.id, p.descricao,
 CASE 
 WHEN timestampdiff(MONTH, p.created_at, now()) <= 0 AND 
@@ -48,15 +48,11 @@ ON p.id = a.post_id
 WHERE 
 u.id = ${userId}
 GROUP BY p.descricao, p.created_at, p.id
-ORDER BY p.created_at DESC`);
-            return result;
+ORDER BY p.created_at DESC`;
+            return database.executar(sql);
 
-    }catch (e) {
-        return {
-            message: 'Erro interno no servidor',
-            error: e
-        }
-    }
+    
+    
 }
 
 

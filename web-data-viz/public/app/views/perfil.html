@@ -115,11 +115,11 @@
             </div>
             <div class="info-quant flex row a-center">
                 <span class="text-fade">Seguidores</span>
-                <span >199</span>
+                <span onclick="openSearch('seguidores')" >199</span>
             </div>
             <div class="info-quant flex row a-center">
                 <span class="text-fade">Seguindo</span>
-                <span >1000</span>
+                <span  onclick="openSearch('seguindo')" >1000</span>
             </div>
             
         </div>
@@ -263,6 +263,24 @@
 
     </div>
 
+    <div id="modal_search_seg" class="backdrop  back-list">
+        <div class="modal modal-list modal-search">
+            <div class="head flex row between">
+                <div class="flex row a-end ">
+                <span id="list-title">Pesquisar</span>
+                <input id="ipt_search" oninput="search()" class="input-search" type="text">
+                </div>
+                <i onclick="closeSearch()" class='bx bx-x'></i>
+            </div>
+            <div id="list-search" class="flex lista w-100 column a-start">
+               
+            </div>
+            <div class="mostrar" id="span_info_search">Pesquise um usuário...</div>
+            <div class="mostrar" id="span_mostrar_mais" ></div>
+        </div>
+
+    </div>
+
 </body>
 
 
@@ -281,3 +299,7 @@
 <script src="../../js/Fill/navPerfil.js"></script>
 
 <script src="../../js/User/perfil.js"></script>
+
+<script src="../../js/User/follow.js"></script>
+
+<script src="../../js/User/searchSeguindo.js"></script>

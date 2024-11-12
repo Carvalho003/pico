@@ -4,13 +4,14 @@ const infosQuant = document.querySelectorAll('.info-quant')
 
 const id = urlPerfil[urlPerfil.length - 1];
 
-fetch(`http://localhost:3001/api/users/${id}/`, {
+fetch(`http://localhost:3333/api/users/${id}/`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
     }
 }).then(res => res.json()).then(data => {
-    
+    console.log(data)
+
     const nomeEUserName = document.querySelector('.nome-username').querySelectorAll('span');
     const fotoCapa = document.querySelector('.capa-perfil');
     if(data.fotoCapa != null){
@@ -31,29 +32,29 @@ fetch(`http://localhost:3001/api/users/${id}/`, {
     
 })
 
-fetch(`http://localhost:3001/api/seguidores/count/seguidores/${id}`, {
+fetch(`http://localhost:3333/api/seguidores/count/seguidores/${id}`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
     }
 }).then(res => res.json()).then(data => {
-    
-    infosQuant[1].querySelectorAll('span')[1].innerText = data.seguidores
+    console.log(data)
+    infosQuant[1].querySelectorAll('span')[1].innerText = data[0].seguidores
 })
 
-fetch(`http://localhost:3001/api/seguidores/count/seguindo/${id}`, {
+fetch(`http://localhost:3333/api/seguidores/count/seguindo/${id}`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
     }
 }).then(res => res.json()).then(data => {
-    
+    console.log(data)
     
         infosQuant[2].querySelectorAll('span')[1].innerText = data.seguindo
     
 })
 
-fetch(`http://localhost:3001/api/posts/${id}`, {
+fetch(`http://localhost:3333/api/posts/${id}`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'

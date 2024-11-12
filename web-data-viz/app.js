@@ -17,10 +17,8 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usersRoutes = require("./src/routes/users/index");
-var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas");
-var aquariosRouter = require("./src/routes/aquarios");
-var empresasRouter = require("./src/routes/empresas");
+var seguidoresRoutes = require('./src/routes/seguidores/index');
+var postsRoutes = require('./src/routes/posts/index')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,11 +28,8 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRoutes);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
-
+app.use("/api/seguidores", seguidoresRoutes);
+app.use("/api/posts", postsRoutes);
 app.listen(PORTA_APP, function () {
     console.log(`
                                                                                                 

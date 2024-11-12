@@ -23,9 +23,7 @@ router.post('/:logado_id/search', async(req, res) => {
    userController.search(req, res);
 })
 
-router.post('/:id/seguir', async(req, res) => {
-    userController.seguir(req, res);
-})
+
 
 router.put('/:id/unfollow', async(req,res) => {
     console.log(req.body);

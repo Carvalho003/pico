@@ -8,7 +8,7 @@ const setUserName = async () => {
         const data = {
             userName: userNameDigitado
         }
-        await fetch(`http://localhost:3001/api/users/${userId}/username`, {
+        await fetch(`http://localhost:3333/api/users/${userId}/username`, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {

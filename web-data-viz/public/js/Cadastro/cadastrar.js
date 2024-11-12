@@ -36,8 +36,12 @@ const cadastrar = async () => {
                 
             }).then(response => response.json())
             .then(response => {
+                console.log(response)
                 console.log(response.message
                 );
+                if(response.success){
+                    span_erro.style.color = "#0047AB";
+                }
                 span_erro.innerText = response.message;
             });
             

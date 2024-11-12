@@ -21,4 +21,16 @@ router.post('/seguidores/:userId/:userLogadoId', async (req,res) => {
     controller.getSeguidoresByUserId(req,res);
 })
 
+router.post('/:seguido_id/seguir', (req,res) =>{
+    console.log(req.params.seguido_id)
+    controller.seguir(req, res);
+})
+
+router.put('/:id/unfollow', async(req,res) => {
+    console.log(req.body);
+    controller.deixarSeguir(req,res);
+})
+
+
+
 module.exports = router;

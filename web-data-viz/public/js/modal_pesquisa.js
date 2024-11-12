@@ -31,7 +31,7 @@ const search = async() => {
         search: search,
         limit: limitSearch
     }
-    await fetch(`http://localhost:3001/api/users/${user.id}/search`,{
+    await fetch(`http://localhost:3333/api/users/${user.id}/search`,{
         method: 'POST' 
         ,body: JSON.stringify(data),
         headers: {
@@ -83,20 +83,22 @@ const search = async() => {
 const seguir = async (id) => {
     const seguido_id = id;
     const seguidor_id = user.id;
-
+    console.log(seguidor_id)
+    console.log(seguido_id);
     const data = {
         
         seguidor_id: seguidor_id
     }
     console.log(JSON.stringify(data))
     console.log(seguidor_id)
-    await fetch(`http://localhost:3001/api/users/${seguido_id}/seguir`, {
+    await fetch(`http://localhost:3333/api/seguidores/${seguido_id}/seguir`, {
         method: 'POST', 
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json()).then(() => {
+    }).then(res => res.json()).then((data) => {
+        console.log(data)
         search()
     })
 }
@@ -111,7 +113,7 @@ const unfollow = async(id) => {
     }
     
     
-    await fetch(`http://localhost:3001/api/users/${seguido_id}/unfollow`, {
+    await fetch(`http://localhost:3333/api/seguidores/${seguido_id}/unfollow`, {
         method: 'PUT', 
         body: JSON.stringify(data),
         headers: {

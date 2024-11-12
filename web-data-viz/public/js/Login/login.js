@@ -7,14 +7,14 @@ const login = async () => {
         password: password
     };
 
-    await fetch('http://localhost:3001/api/users/authenticate', {
+    await fetch('http://localhost:3333/api/users/authenticate', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(data => {
-        
+        console.log(data)
         if(data.message == undefined){
             const stringUser = JSON.stringify(data)
             

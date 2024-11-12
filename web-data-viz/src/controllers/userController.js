@@ -10,7 +10,14 @@ const store = async (req, res) =>{
         model.store({nome, email, dtNasc, password})
         .then(
             function (resultado) {
-                res.json(resultado);
+                if(resultado.affectedRows > 0){
+                    res.json({
+                        message: "Usuário cadastrado com sucesso!",
+                        success: true
+                    })
+                }else{
+                    res.json(resultado);
+                }
             }
         ).catch(
             function (erro) {
@@ -19,7 +26,13 @@ const store = async (req, res) =>{
                     "\nHouve um erro ao realizar o cadastro! Erro: ",
                     erro.sqlMessage
                 );
-                res.status(500).json(erro.sqlMessage);
+                if(erro.code == "ER_DUP_ENTRY"){
+                    res.status(200).json({
+                        message: 'O email já esta sendo utilizado'
+                    })
+                }else{
+                    res.status(500).json(erro.sqlMessage)
+                }
             }
         );
 }else{
@@ -32,9 +45,23 @@ const store = async (req, res) =>{
 const authenticate = async(req, res) => {
     const {email, password} = req.body;
     if(email && password){
-        const response =  await model.authenticate(email, password);
+        model.authenticate(email, password).then((response) => {
+            if (response.length > 0) {
+                res.json(response[0]);
+            } else {
+                res.json( {
+                    message: 'Email ou Senha incorretos!',  
+                })
+            }
+        }).catch(e => {
+            console.log(e)
+            res.json({
+                message: "Erro ao realizar login",
+                error: e
+            })
+        })
 
-        res.status(200).json(response)
+        
 
     }else{
         res.status(200).json({
@@ -48,8 +75,23 @@ const search = async(req,res) =>{
     const logado_id = req.params.logado_id;
     
     if(search && limit) {
-       const response = await model.search(search, limit, logado_id);
-       res.status(200).json(response)
+        model.search(search, limit, logado_id).then(response => {
+
+            if(response.length > 0){
+            
+                res.json(response)
+                 
+             }else {
+                 res.json( {
+                     message: 'Nenhum usuário encontrado'
+                 })
+             }
+        }).catch(e => {
+            res.send( {
+                message: 'Erro interno no servidor!',
+                error: e
+            })
+        })
     }else{
         res.status(200).json({
             message: 'Pesquise algum usuário'
@@ -66,9 +108,34 @@ const setUsername = async(req,res) => {
         userName = "@" + userName;
         const userId = req.params.id;
 
-        const response = await model.setUsername(userId, userName);
+        model.setUsername(userId, userName).then((response) => {
+            if (response.affectedRows > 0) {
+                res.json( {
+                    message: 'UserName atualizado',
+                    userName: userName
+                })
+            }
+            
+        }).catch(e => {
+            if (e.code == "ER_DUP_ENTRY") {
+                res.json( {
+                    message: 'Nome de já usuário esta sendo utilizado',
+                    error: e
+                })
+            } else if(e.code == "ER_DATA_TOO_LONG"){
+                res.json( {
+                    message: 'Nome de usuário muito longo, use até 20 caracteres',
+                    error: e
+                })
+            }
+             else {
+                res.json( {
+                    message: 'Erro interno no servidor',
+                    error: e
+                })
+            }
+        })
 
-        res.status(200).json(response)
        
     } else {
         res.status(201).json({
@@ -79,100 +146,32 @@ const setUsername = async(req,res) => {
 }
 
 
-const seguir = async (req,res) => {
-    const {seguidor_id} = req.body;
-    
-    const seguido_id = req.params.id;
-    
-        
-    const response = await seguidorModel.checkSeguir(seguido_id, seguidor_id);
-    
-    if(!response.message){
-        if(response.length > 0){
-            if(response[0].status == 1){
-                res.status(500).json({
-                    message: 'Impossível seguir novamente'
-                });
-            }else{
-                const updateLine = await seguidorModel.updateSeguir(seguido_id, seguidor_id);
-                res.status(200).json(updateLine)
-            } 
-        }else{
-            
-           const insertLine = await seguidorModel.insertSeguir(seguido_id, seguidor_id);
-           res.status(200).json(insertLine);
-            
-            
-        }
-    }else{
-        res.status(200).json(response);
-    }
-    
-}
 
 
-const deixarSeguir = async (req,res) => {
-    const {seguidor_id} = req.body 
-    const seguido_id = req.params.id;
 
-    const response = await seguidorModel.checkSeguir(seguido_id, seguidor_id);
-    console.log(response);
-    if(!response.message){
-        if(response.length > 0){
-            if(response[0].status == 1){
-                const updateLine = await seguidorModel.deixarSeguir(seguido_id, seguidor_id);
-                res.status(200).json(updateLine);
-            }else{
-                res.status(500).json({
-                    message: 'Impossível deixar de seguir novamente'
-                });
-            } 
-        }else{
-            
-           const insertLine = await seguidorModel.insertSeguir(seguido_id, seguidor_id);
-           res.status(200).json(insertLine);
-            
-            
-        }
-    }else{
-        res.status(200).json(response);
-    }
 
-}
 
 const getById = async (req,res) => {
     const id = req.params.id;
     
     
 
-    const user = await model.getById(id);
+    model.getById(id).then(response => {
+        if(response.length > 0){
+            res.status(200).json(response[0]);
+        }else{
+            res.status(200).json({
+                message: 'Não existe nenhum usuário com esse id'
+            });
+        }
+    }).catch(e => {
+        res.json({
+            message: 'Erro interno no servidor', 
+            error: e
+        })
+    });
     
-    if(user.length > 0){
-        // const seguidores = await seguidorModel.getCountSeguidoresById(id)
-
-        // if(seguidores.length > 0){
-        //     userInfo.seguidores = seguidores[0]
-        // }else{
-        //     userInfo.seguidores = {seguidores: 0}
-        // }
-
-        // const seguindo = await seguidorModel.getCountSeguindoById(id);
-
-        // if(seguindo.length > 0){
-        //     userInfo.seguindo = seguindo[0]
-        // }else{
-        //     userInfo.seguindo = {seguindo: 0}
-        // }
-
-       
-
-        res.status(200).json(user[0]);
-
-    }else{
-        res.status(200).json({
-            message: 'Não existe nenhum usuário com esse id'
-        });
-    }
+    
 }
 
 
@@ -182,7 +181,5 @@ module.exports = {
     authenticate,
     search,
     setUsername,
-    seguir,
-    deixarSeguir, 
     getById
 }

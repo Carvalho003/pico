@@ -468,6 +468,7 @@ main{
     color: var(--dark-font);
     padding: 5px !important;
     font-size: 18px;
+    outline: none;
 }
 
 #button-comentario{

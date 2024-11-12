@@ -459,6 +459,32 @@ main{
     font-size: var(--big-font);
 }
 
+#textarea-comentario{
+    resize: none;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 11px;
+    height: 100px;
+    color: var(--dark-font);
+    padding: 5px !important;
+    font-size: 18px;
+}
+
+#button-comentario{
+    width: fit-content ;
+    padding: 0px 5px !important;
+    margin-top: 5px !important  ;
+    align-self: flex-end;
+    border-radius: 6px;
+    height: 30px;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 .text-white{
     color: #fff;
 }

@@ -72,7 +72,7 @@
                 </li>
             </div>
         </nav>
-        <section class="area-posts flex column">
+        <section id="area_posts" class="area-posts flex column">
             <div class="post flex column">
 
                 <div class="infos-user-post between a-center flex row">
@@ -156,7 +156,11 @@
                         </div>
                     </div>
                     <span>Carregar mais...</span>
-
+                    <div class="flex column w-100">
+                        <span>Comentar:</span>
+                        <textarea class="w-100" name="" placeholder="Comentar.." id="textarea-comentario"></textarea>
+                        <button id="button-comentario">Comentar</button>
+                    </div>
                 </div>
 
             </div>
@@ -467,3 +471,7 @@
 <script src="../../js/modal_pesquisa.js"></script>
 
 <script src="../../js/Fill/navPerfil.js"></script>
+
+<script src="../../js/Feed/posts.js"></script>
+
+<script src="../../js/Interacao/like.js"></script>

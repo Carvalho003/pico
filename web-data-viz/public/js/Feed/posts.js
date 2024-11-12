@@ -1,60 +1,4 @@
-const urlPerfil = (window.location.href).split('/')
-
-const infosQuant = document.querySelectorAll('.info-quant')
-
-const id = urlPerfil[urlPerfil.length - 1];
-
-fetch(`http://localhost:3333/api/users/${id}/`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}).then(res => res.json()).then(data => {
-    console.log(data)
-
-    const nomeEUserName = document.querySelector('.nome-username').querySelectorAll('span');
-    const fotoCapa = document.querySelector('.capa-perfil');
-    if(data.fotoCapa != null){
-        fotoCapa.style.backgroundImage = `url('${data.fotoCapa}'`;
-    }
-
-    if(data.id != user.id){
-        nomeEUserName[0].innerText = data.nome
-        nomeEUserName[1].innerText = data.userName
-        if(data.foto != null){
-            document.querySelector('.foto-perfil').style.backgroundImage = `url('${data.foto}')`;
-        }
-        document.querySelector('.editar').style.display = 'none';
-        document.querySelector('.create-div-perfil').style.display = 'none'
-        perfil_li.classList.remove('active')
-    }
-
-    
-})
-
-fetch(`http://localhost:3333/api/seguidores/count/seguidores/${id}`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}).then(res => res.json()).then(data => {
-    console.log(data)
-    infosQuant[1].querySelectorAll('span')[1].innerText = data[0].seguidores
-})
-
-fetch(`http://localhost:3333/api/seguidores/count/seguindo/${id}`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}).then(res => res.json()).then(data => {
-    console.log(data)
-    
-        infosQuant[2].querySelectorAll('span')[1].innerText = data.seguindo
-    
-})
-
-fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
+fetch(`http://localhost:3333/api/posts/seguindo/${user.id}`, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
@@ -75,7 +19,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                             html += ` style="background-image: url('${publicacao.foto}')" `
                             }
                             html += ` class="foto-user-post"></div>
-                            <div class="name-time flex column">
+                            <div onclick="perfil(${publicacao.id})" class="name-time flex column">
                                 <span id="nome_user">${publicacao.nome}</span>
                                 <span id="tempo" class="text-fade">${publicacao.tempo}</span>
                             </div>
@@ -110,10 +54,9 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                         }else{
                             html += `<i onclick="likeDeslike(${publicacao.postId}, this)" class='bx bxs-like  text-fade' ></i>`
                         }
-                            
                             html += `<span>${publicacao.likes}</span>
                         </div>
-                        <div  onclick="showComents(this, ${publicacao.postId})" class="group-interaction-icon a-center flex row">
+                        <div onclick="showComents(this, ${publicacao.postId})" class="group-interaction-icon a-center flex row">
                             <i class='bx bx-comment-dots text-fade'></i>
                             <span>Comentar</span>
                         </div>
@@ -124,7 +67,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                         </div>
                     </div>
 
-                 <div style="display:none" class="post-coments  w-100 flex column a-start">
+                    <div style="display:none" class="post-coments  w-100 flex column a-start">
                     <span>Comentários</span>
                     
                    
@@ -139,7 +82,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                 </div>`
         })
         
-        posts_div.innerHTML = html
+        area_posts.innerHTML = html
         elementosCarregarAnexos.map(elementoCarregarAnexos =>{
             const elementoEmHtml = document.getElementById(elementoCarregarAnexos)
 
@@ -147,7 +90,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
             carregarAnexos(elementoEmHtml)
         })
 }
-infosQuant[0].querySelectorAll('span')[1].innerText = qtd
+
 
 
 })

@@ -19,6 +19,7 @@ var indexRouter = require("./src/routes/index");
 var usersRoutes = require("./src/routes/users/index");
 var seguidoresRoutes = require('./src/routes/seguidores/index');
 var postsRoutes = require('./src/routes/posts/index')
+var interacaoRoutes = require('./src/routes/interacao/index')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +31,8 @@ app.use("/", indexRouter);
 app.use("/api/users", usersRoutes);
 app.use("/api/seguidores", seguidoresRoutes);
 app.use("/api/posts", postsRoutes);
+app.use("/api/interacaos", interacaoRoutes);
+
 app.listen(PORTA_APP, function () {
     console.log(`
                                                                                                 

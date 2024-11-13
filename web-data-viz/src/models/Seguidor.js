@@ -10,6 +10,14 @@ const checkSeguir = async (seguido_id, seguidor_id) => {
         
 }  
 
+const getSugestoes = (userId) => {
+        const sql = `SELECT u.nome, u.foto,  u.id FROM user as u
+WHERE (SELECT count(user.id) FROM user 
+JOIN seguidor s 
+ON s.seguidor_id = user.id AND s.seguido_id = u.id AND s.seguidor_id = ${userId}) = 0 LIMIT 4;`
+        return database.executar(sql)
+}
+
 
 
 const searchSeguindoByUserId = async(search, limit, userId, userLogadoId) => {
@@ -121,5 +129,6 @@ module.exports = {
     getCountSeguidoresById,
     getCountSeguindoById,
     searchSeguindoByUserId,
-    searchSeguidoresByUserId
+    searchSeguidoresByUserId,
+    getSugestoes
 }

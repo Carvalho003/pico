@@ -10,14 +10,19 @@ let abriu = false;
 const abrirOpcoes = () => {
     menuNav.classList.toggle('toggle');
 }
-
+ 
 const abrirOpcoesPublicacao = (element) => {
-
     element.querySelector('.menu-pub').classList.toggle('toggle-pub')
     abrirOpcoes()
 }
 
 const createPub = () => {
+    try{
+    div_arquivos_post.style.display = 'flex'
+    preview_area_post.innerHTML = ``
+    }catch(e){
+        
+    }
     backdropModal.style.display = 'flex';
     modalAberto = true;
 }

@@ -15,6 +15,19 @@ const countSeguidoresByUserId = async (req, res) => {
 
 }
 
+const getSugestoes = (req, res) => {
+    const userId = req.params.userId;
+    
+    model.getSugestoes(userId).then(resposta => {
+        res.json(resposta)
+    }).catch(e => {
+        res.json({
+            message: "Erro interno de servidor",
+            error: e
+        })
+    })
+}
+
 
 
 const seguir = async (req,res) => {
@@ -185,5 +198,6 @@ module.exports = {
     getSeguindoByUserId,
     getSeguidoresByUserId,
     seguir,
-    deixarSeguir
+    deixarSeguir,
+    getSugestoes
 }

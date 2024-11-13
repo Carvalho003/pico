@@ -31,6 +31,9 @@ router.put('/:id/unfollow', async(req,res) => {
     controller.deixarSeguir(req,res);
 })
 
+router.get('/sugestoes/:userId', (req, res) => {
+    controller.getSugestoes(req, res);
+})
 
 
 module.exports = router;

@@ -288,7 +288,7 @@ body{
     max-height: 50px;
     max-width: 50px;
     border-radius: 100%;
-    background-image: url('../img/users/perfil/tiago.jpg');
+    background-image: url('../img/users/perfil/default.png');
     background-size: cover;
     background-position: 50%;
 }

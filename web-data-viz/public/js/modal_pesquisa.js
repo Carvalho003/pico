@@ -101,6 +101,12 @@ const seguir = async (id) => {
         console.log(data)
         search()
     })
+
+    try{
+        getSugestoes()
+    }catch(e){
+        console.log(e)
+    }
 }
 
 const unfollow = async(id) => {

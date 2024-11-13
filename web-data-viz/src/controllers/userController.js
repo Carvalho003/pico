@@ -1,4 +1,44 @@
 const model = require('../models/User');
+const  multer = require('multer');
+const path = require('path')
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, '../../public/uploads')); // Caminho onde as imagens serão salvas
+    },
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, uniqueSuffix + '-' + file.originalname); // Define um nome único para cada arquivo
+    }
+  });
+  const upload = multer({ storage: storage });
+
+
+const setFoto = (req, res) => {
+    upload.single('image')(req, res, (err) => {
+        if (err) {
+          return res.status(500).json({ error: 'Erro ao processar o upload.', err: err });
+        }
+        if (!req.file) {
+          return res.status(400).json({ error: 'Nenhuma imagem recebida!' });
+        }
+
+          const foto =  req.file.filename;
+
+          model.setFoto(foto, req.params.userId).then(resposta => {
+
+              res.json({ message: 'Imagem recebida com sucesso!', file: foto });
+          }).catch(e => {
+            res.json({
+                message: "Erro ao atualizar imagem",
+                error: e
+            })
+          })
+
+
+      });
+    
+}
 
 
 const store = async (req, res) =>{
@@ -181,5 +221,6 @@ module.exports = {
     authenticate,
     search,
     setUsername,
-    getById
+    getById,
+    setFoto
 }

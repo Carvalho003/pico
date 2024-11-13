@@ -4,6 +4,8 @@ const infosQuant = document.querySelectorAll('.info-quant')
 
 const id = urlPerfil[urlPerfil.length - 1];
 
+
+
 fetch(`http://localhost:3333/api/users/${id}/`, {
     method: 'GET',
     headers: {
@@ -17,13 +19,13 @@ fetch(`http://localhost:3333/api/users/${id}/`, {
     if(data.fotoCapa != null){
         fotoCapa.style.backgroundImage = `url('${data.fotoCapa}'`;
     }
-
+    nomeEUserName[0].innerText = data.nome
+    nomeEUserName[1].innerText = data.userName
+    if(data.foto != null){
+        document.querySelector('.foto-perfil').style.backgroundImage = `url('../uploads/${data.foto}')`;
+    }
     if(data.id != user.id){
-        nomeEUserName[0].innerText = data.nome
-        nomeEUserName[1].innerText = data.userName
-        if(data.foto != null){
-            document.querySelector('.foto-perfil').style.backgroundImage = `url('${data.foto}')`;
-        }
+        
         document.querySelector('.editar').style.display = 'none';
         document.querySelector('.create-div-perfil').style.display = 'none'
         perfil_li.classList.remove('active')
@@ -54,6 +56,8 @@ fetch(`http://localhost:3333/api/seguidores/count/seguindo/${id}`, {
     
 })
 
+const carregarPosts = () =>{
+
 fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
     method: 'GET',
     headers: {
@@ -72,7 +76,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                         <div class="group-foto-nome-post a-center flex row">
                             <div` 
                             if(publicacao.foto){
-                            html += ` style="background-image: url('${publicacao.foto}')" `
+                            html += ` style="background-image: url('../uploads/${publicacao.foto}')" `
                             }
                             html += ` class="foto-user-post"></div>
                             <div class="name-time flex column">
@@ -80,7 +84,19 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                                 <span id="tempo" class="text-fade">${publicacao.tempo}</span>
                             </div>
                         </div>
-                        <i class='bx bx-dots-vertical-rounded'></i>
+                        <div class="relative" onclick="abrirOpcoesPublicacao(this)">
+                        <div class="absolute menu-pub ">
+                            <ul>
+                                <li>
+                                    <a href="http://localhost:3333/perfil/${publicacao.id}"><p>Ver Perfil de ${(publicacao.nome).split(" ")[0]}...</p></a>
+                                </li>
+                                <li>
+                                    <a href="">Compartilhar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
+                    </div>
                     </div>
                     <div class="post-content flex column a-start">
                         <p id="desc_post">${publicacao.descricao}</p>`
@@ -151,3 +167,6 @@ infosQuant[0].querySelectorAll('span')[1].innerText = qtd
 
 
 })
+}
+
+carregarPosts()

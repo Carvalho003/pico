@@ -26,7 +26,7 @@
 <body class="corpo-feed flex row ">
     <nav class="side-bar ">
         <div class="side-nav flex column a-center">
-            <div class="foto_user foto-side"></div>
+            <div id="foto_user_feed_side" class="foto_user foto-side"></div>
 
             <div class="group-names flex column w-100 a-center jf-center">
                 <span id="span_nome_user" class="user_nome">Hugo Carvalho</span>
@@ -73,162 +73,7 @@
             </div>
         </nav>
         <section id="area_posts" class="area-posts flex column">
-            <div class="post flex column">
-
-                <div class="infos-user-post between a-center flex row">
-                    <div class="group-foto-nome-post a-center flex row">
-                        <div class="foto-user-post"></div>
-                        <div class="name-time flex column">
-                            <span id="nome_user">Sergio Sacani</span>
-                            <span id="tempo" class="text-fade">2 hours ago</span>
-                        </div>
-                    </div>
-                    <i class='bx bx-dots-vertical-rounded'></i>
-                </div>
-                <div class="post-content flex column a-center">
-                    <p id="desc_post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates recusandae illum, quia iure magni repudiandae error deleniti nemo reprehenderit obcaecati culpa nam minus laborum quod fuga officiis quo ipsa.</p>
-                    <div onclick="carregarAnexos(this)" class="anexos_post">
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post flex center">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        
-
-                        
-                    </div>
-                </div>
-                <div class="post_interaction flex row a-center">
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bxs-like text-fade' ></i>
-                        <span>41</span>
-                    </div>
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bx-comment-dots text-fade'></i>
-                        <span>Comentar</span>
-                    </div>
-
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bx-share text-fade' ></i>
-                        <span>Compartilhar</span>
-                    </div>
-                </div>
-
-                <div class="post-coments  w-100 flex column a-start">
-                    <span>Comentários</span>
-                    <div class="comentario w-100 a-start flex row">
-                        <div class="foto-user">
-                            
-                        </div>
-
-                        <div class="nome-desc flex column">
-                            <span>Hugo Carvalho</span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
-                        </div>
-                    </div>
-                    <div class="comentario w-100 a-start flex row">
-                        <div class="foto-user">
-                            
-                        </div>
-
-                        <div class="nome-desc flex column">
-                            <span>Hugo Carvalho</span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
-                        </div>
-                    </div><div class="comentario w-100 a-start flex row">
-                        <div class="foto-user">
-                            
-                        </div>
-
-                        <div class="nome-desc flex column">
-                            <span>Hugo Carvalho</span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
-                        </div>
-                    </div>
-                    <span>Carregar mais...</span>
-                    <div class="flex column w-100">
-                        <span>Comentar:</span>
-                        <textarea class="w-100" name="" placeholder="Comentar.." id="textarea-comentario"></textarea>
-                        <button id="button-comentario">Comentar</button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="post flex column">
-
-                <div class="infos-user-post relative between a-center flex row">
-                    
-                    <div class="group-foto-nome-post a-center flex row">
-                        <div class="foto-user-post"></div>
-                        <div class="name-time flex column">
-                            <span id="nome_user">Sergio Sacani</span>
-                            <span id="tempo" class="text-fade">2 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="relative" onclick="abrirOpcoesPublicacao(this)">
-                        <div class="absolute menu-pub ">
-                            <ul>
-                                <li>
-                                    <a href="#"><p>Ver Perfil de Sergio...</p></a>
-                                </li>
-                                <li>
-                                    <a href="">Compartilhar</a>
-                                </li>
-                            </ul>
-                        </div>
-                    <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
-                    </div>
-                </div>
-                <div class="post-content flex column a-center">
-                    <p id="desc_post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates recusandae illum, quia iure magni repudiandae error deleniti nemo reprehenderit obcaecati culpa nam minus laborum quod fuga officiis quo ipsa.</p>
-                    <div onclick="carregarAnexos(this)" class="anexos_post">
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        <div class="foto-post flex center">
-                        
-                        </div>
-                        <div class="foto-post">
-                        
-                        </div>
-                        
-
-                        
-                    </div>
-                </div>
-                <div class="post_interaction flex row a-center">
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bxs-like text-fade' ></i>
-                        <span>41</span>
-                    </div>
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bx-comment-dots text-fade'></i>
-                        <span>Comentar</span>
-                    </div>
-
-                    <div class="group-interaction-icon a-center flex row">
-                        <i class='bx bx-share text-fade' ></i>
-                        <span>Compartilhar</span>
-                    </div>
-                </div>
-
-            </div>
+            <span>Não há posts, <span style="cursor: pointer;font-weight: 600;" onclick="openSearch()">siga novas pessoas</span></span>
            
         </section>
     </main>
@@ -236,7 +81,7 @@
         <div class="sugestion">
             <nav class="nav-head relative user-infos center">
                 <span id="user_name">@carvalsk8</span>
-                <div class="foto_user">
+                <div id="foto_user_feed" class="foto_user">
                     
                 </div>
                 
@@ -298,7 +143,7 @@
         <main class="body-modal  flex column  w-100 a-center">
             <div class="text-area-group relative ">
                 <textarea  placeholder="Compartilhe algo..." rows="4" class="w-100 "  id="desc_post_create"></textarea>
-                <div class="absolute foto-user"></div>
+                <div id="foto_post_preview" class="absolute foto-user"></div>
             </div>
             <div class="archives-group jf-start  flex row a-center">
                 <div class="icon-desc flex row a-center">
@@ -325,7 +170,7 @@
             </div>
 
             <div class="footer-modal  flex jf-end ">
-                <button>publicar</button>
+                <button onclick="publish()">publicar</button>
             </div>
 
         </main>
@@ -475,3 +320,5 @@
 <script src="../../js/Feed/posts.js"></script>
 
 <script src="../../js/Interacao/like.js"></script>
+
+<script src="../../js/User/publish.js"></script>

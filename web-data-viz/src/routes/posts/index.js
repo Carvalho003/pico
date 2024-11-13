@@ -14,4 +14,8 @@ router.get('/seguindo/:userLogadoId', (req, res) => {
     controller.getPublicacoesSeguindo(req, res);
 })
 
+router.post("/:userId", (req, res) => {
+    controller.storePublicacao(req, res);
+})
+
 module.exports = router

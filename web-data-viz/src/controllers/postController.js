@@ -90,8 +90,23 @@ const getPublicacoesSeguindo = async (req, res) =>{
 
 }
 
+const storePublicacao = (req, res) => {
+    const descricaoPost = req.body.descricao;
+    const userId = req.params.userId;
+
+    model.storePublicacao(descricaoPost, userId).then(resposta => {
+        res.json(resposta);
+    }).catch(e => {
+        res.json({
+            message: "Erro interno de servidor",
+            error: e
+        })
+    })
+}
+
 
 module.exports = {
     getPublicacoesByUserId,
-    getPublicacoesSeguindo
+    getPublicacoesSeguindo,
+    storePublicacao
 }

@@ -5,6 +5,62 @@
     
 }
 
+#ipt_foto, #ipt_foto_capa{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+}
+#editar_capa{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#editar_perfil{
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 100%;
+    transition: all 1s;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#cropButton{
+    width: 100px;
+    height: 50px;
+    font-size: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin-top: 10px !important;
+    cursor: pointer;
+
+}
+
+.foto-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body{
     color: var(--dark-font);
     background-color: var(--light-bg);

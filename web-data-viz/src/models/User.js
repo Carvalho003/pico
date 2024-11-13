@@ -1,6 +1,12 @@
 
 const database = require('../database/config');
 
+
+const setFoto = (foto, userId) => {
+        const sql = `UPDATE user SET foto = '${foto}' WHERE id = ${userId}`;
+        return database.executar(sql)
+}
+
 const store = async (user) => {
 
 
@@ -66,5 +72,6 @@ module.exports = {
     authenticate,
     search,
     setUsername,
-    getById
+    getById,
+    setFoto
 }

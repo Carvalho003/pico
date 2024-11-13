@@ -22,6 +22,10 @@ const createPub = () => {
     modalAberto = true;
 }
 
+const fecharPub = () => {
+    backdropModal.style.display = 'none';
+}
+
 backdropModal.addEventListener('click', (event) => {
     if(!event.target.closest('.modal')){
         backdropModal.style.display = 'none';

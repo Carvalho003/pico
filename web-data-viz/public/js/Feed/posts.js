@@ -1,3 +1,5 @@
+const carregarPosts =() => {
+
 fetch(`http://localhost:3333/api/posts/seguindo/${user.id}`, {
     method: 'GET',
     headers: {
@@ -16,7 +18,7 @@ fetch(`http://localhost:3333/api/posts/seguindo/${user.id}`, {
                         <div class="group-foto-nome-post a-center flex row">
                             <div` 
                             if(publicacao.foto){
-                            html += ` style="background-image: url('${publicacao.foto}')" `
+                            html += ` style="background-image: url('../uploads/${publicacao.foto}')" `
                             }
                             html += ` class="foto-user-post"></div>
                             <div onclick="perfil(${publicacao.id})" class="name-time flex column">
@@ -24,7 +26,19 @@ fetch(`http://localhost:3333/api/posts/seguindo/${user.id}`, {
                                 <span id="tempo" class="text-fade">${publicacao.tempo}</span>
                             </div>
                         </div>
-                        <i class='bx bx-dots-vertical-rounded'></i>
+                        <div class="relative" onclick="abrirOpcoesPublicacao(this)">
+                        <div class="absolute menu-pub ">
+                            <ul>
+                                <li>
+                                    <a href="http://localhost:3333/perfil/${publicacao.id}"><p>Ver Perfil de ${(publicacao.nome).split(" ")[0]}...</p></a>
+                                </li>
+                                <li>
+                                    <a href="">Compartilhar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
+                    </div>
                     </div>
                     <div class="post-content flex column a-start">
                         <p id="desc_post">${publicacao.descricao}</p>`
@@ -94,3 +108,6 @@ fetch(`http://localhost:3333/api/posts/seguindo/${user.id}`, {
 
 
 })
+}
+
+carregarPosts()

@@ -105,7 +105,7 @@ FROM user AS u
 JOIN seguidor seg
 ON u.id = seg.seguidor_id AND seg.seguidor_id = ${userId}
 JOIN user dono_post 
-ON seg.seguido_id = dono_post.id
+ON seg.seguido_id = dono_post.id OR dono_post.id = ${userId}
 JOIN post p
 LEFT JOIN interacao likes 
 ON p.id = likes.post_id 
@@ -122,9 +122,15 @@ ORDER BY p.created_at DESC`;
 
 }
 
+const storePublicacao = (descricao, userId) => {
+    const sql = `INSERT INTO post (descricao, user_id) VALUES ('${descricao}', ${userId})`;
+    return database.executar(sql)
+}
+
 
 
 module.exports = {
     getPublicacoesById,
-    getPublicacoesSeguindo
+    getPublicacoesSeguindo,
+    storePublicacao
 }

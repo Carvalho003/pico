@@ -10,6 +10,13 @@ document.body.onload = () => {
     span_nome_user.innerText = user.nome;
     navUsername.innerText = user.userName;
     sideUsername.innerText = user.userName;
+
+    if(user.foto != null){
+        foto_user_feed.style.backgroundImage = `url('../uploads/${user.foto}')`
+        foto_user_feed_side.style.backgroundImage = `url('../uploads/${user.foto}')`
+        foto_post_preview.style.backgroundImage = `url('../uploads/${user.foto}')`
+        
+    }
 }
 
 const reFill = () => {

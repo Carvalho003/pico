@@ -8,6 +8,10 @@ router.post('/', async (req, res) => {
     userController.store(req, res);
 });
 
+router.put('/:userId/foto', (req, res) => {
+    userController.setFoto(req,res)
+})
+
 router.post('/authenticate', async (req, res) => {
     userController.authenticate(req, res);
 })

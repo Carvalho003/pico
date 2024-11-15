@@ -17,7 +17,7 @@ fetch(`http://localhost:3333/api/users/${id}/`, {
     const nomeEUserName = document.querySelector('.nome-username').querySelectorAll('span');
     const fotoCapa = document.querySelector('.capa-perfil');
     if(data.fotoCapa != null){
-        fotoCapa.style.backgroundImage = `url('${data.fotoCapa}'`;
+        fotoCapa.style.backgroundImage = `url('../uploads/${data.fotoCapa}'`;
     }
     nomeEUserName[0].innerText = data.nome
     nomeEUserName[1].innerText = data.userName

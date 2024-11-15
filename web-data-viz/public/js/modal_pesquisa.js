@@ -48,9 +48,16 @@ const search = async() => {
 
                 if(user.id != dados.id){
                     message += `<div class="foto-infos a-center flex row between w-100">
-                    <div class="flex row a-center" style="gap:10px">
-                        <div class="foto-user"></div>
-                        <div class="nome-tempo flex column">
+                    <div class="flex row a-center" style="gap:10px">`
+                        if(dados.foto){
+                            console.log("temfoto")
+                           message += ` <div style="background-image: url('../uploads/${dados.foto}')" class="foto-user"></div>`
+                        }else{
+                            console.log("naotemfoto")
+                            message += `<div class="foto-user"></div>`
+
+                        }
+                        message += `<div class="nome-tempo flex column">
                         <span>${dados.userName}</span>
                         </div>
                         </div>

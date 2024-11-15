@@ -38,7 +38,8 @@ const getSugestoes = () => {
             html += `<div class="flex row">
                             `
                             if(sugestao.foto != null){
-                                html += `<div class="foto-users-seguir" style="backgroundImage: url('../uploads/${sugestao.foto}')"></div>`
+                                console.log("pinto")
+                                html += `<div class="foto-users-seguir" style="background-image: url('../uploads/${sugestao.foto}')"></div>`
                             }else {
                                 
                                 html += `<div class="foto-users-seguir"></div>`

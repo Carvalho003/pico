@@ -59,12 +59,16 @@ const showComents = (element, postId) =>{
         console.log(res)
         let html = `<span>Comentários</span>`
         res.map(comentario => {
-             html += `<div class="comentario w-100 a-start flex row">
-                        <div class="foto-user">
-                            
-                        </div>
+             html += `<div class="comentario w-100 a-start flex row">`
+                        if(comentario.foto){
+                            html += `<div style="background-image: url('../uploads/${comentario.foto}')" class="foto-user"></div>`
+                        }else{
+                            html += `<div class="foto-user"></div>`
 
-                        <div class="nome-desc flex column">
+                        }
+                        
+
+                        html += `<div class="nome-desc flex column">
                             <span>${comentario.nome}</span>
                             <p>${comentario.descricao}</p>
                         </div>

@@ -4,6 +4,7 @@ const infosQuant = document.querySelectorAll('.info-quant')
 
 const id = urlPerfil[urlPerfil.length - 1];
 
+let contador = 0;
 
 
 fetch(`http://localhost:3333/api/users/${id}/`, {
@@ -102,18 +103,18 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                         <p id="desc_post">${publicacao.descricao}</p>`
                         if(publicacao.anexos != 'SEM ANEXO'){
                         
-                            html += `<div id="carregar${publicacao.postId}" onclick="carregarAnexos(this)" class="anexos_post">`
+                            html += `<div id="carregar${publicacao.postId}${contador}" onclick="carregarAnexos(this)" class="anexos_post">`
                             publicacao.anexos.map(anexo => {
                                 
-                                html += `<div class="foto-post"></div>`
+                                html += `<div style="background-image : url('../uploads/anexos/${anexo.anexo}')" class="foto-post"></div>`
 
                                 })
                             
                             html += `</div>`
 
-                             elementosCarregarAnexos.push(`carregar${publicacao.postId}`)
+                             elementosCarregarAnexos.push(`carregar${publicacao.postId}${contador}`)
                             
-
+                                contador++;
                             
                        
                         }else if(publicacao.compartilhamento != null){
@@ -149,17 +150,17 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                                 <p id="desc_post">${pub_compartilhada.descricao}</p>`
                                 if(pub_compartilhada.anexos != 'SEM ANEXO'){
                                 
-                                    html += `<div id="carregar${pub_compartilhada.postId}" onclick="carregarAnexos(this)" class="anexos_post">`
+                                    html += `<div id="carregar${pub_compartilhada.postId}${contador}" onclick="carregarAnexos(this)" class="anexos_post">`
                                     pub_compartilhada.anexos.map(anexo => {
                                         
-                                        html += `<div class="foto-post"></div>`
+                                        html += `<div style="background-image:url('../uploads/anexos/${anexo.anexo}')" class="foto-post"></div>`
         
                                         })
                                     
                                     html += `</div>`
         
-                                     elementosCarregarAnexos.push(`carregar${pub_compartilhada.postId}`)
-                                    
+                                     elementosCarregarAnexos.push(`carregar${pub_compartilhada.postId}${contador}`)
+                                    contador++
         
                                     
                                     }

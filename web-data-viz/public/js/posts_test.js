@@ -1,3 +1,11 @@
+const expandida = document.getElementById('div_expandida');
+
+
+const closeExpandida = () => {
+    expandida.style.display = 'none'
+}
+
+const wrapper_expand = document.getElementById('wrapper_expand')
 const  carregarAnexos = (element) => {
     if(element != null){
     const espacos = element.querySelectorAll('.foto-post');
@@ -25,9 +33,44 @@ const  carregarAnexos = (element) => {
     //carregamento
     for (var i =0; i < tamanhoFor; i++){
         console.log('aa')
-        espacos[i].style.backgroundImage = `url('../img/${i+1}.jpg')`;
+        
     }
     }
 }
     }
+
+    element.onclick = () => expandir(element)
 }
+
+const expandir = element => {
+    wrapper_expand.innerHTML = "";
+    console.log(element)
+    const posts = element.querySelectorAll('.foto-post');
+    console.log(posts)
+    for(let i =0; i < posts.length; i ++){
+        let url = posts[i].style.backgroundImage;
+
+        url = url.replaceAll("url(", "");
+        url = url.replaceAll(")", "")
+        url = url.replaceAll('"', "");
+        url = url.split("/")
+        url = url[url.length -1]; 
+        wrapper_expand.innerHTML += `<div style="height:80vh;display:flex !important; width:100%;padding:20px !important" class="swiper-slide  flex jf-center a-center"><img src="../uploads/anexos/${url}" /></div>`
+        
+        
+        var swiperExpand = new Swiper(".expand", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            
+              navigation: {
+                nextEl: ".next-expand",
+                prevEl: ".prev-expand",
+              },
+            
+        });
+        expandida.style.display = 'flex'
+    }
+    
+}
+
+

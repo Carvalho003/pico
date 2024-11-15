@@ -11,7 +11,9 @@ const getPublicacoesByUserId = async (req, res) =>{
                 if(publicacao.anexos != "SEM ANEXO"){
                     let novosAnexos = []
                     let anexos = (publicacao.anexos).split('#');
-                    
+                    if(anexos == []){
+                        anexos = [anexos]
+                    }
                     if(anexos.length > 0 ){
                         anexos.map(anexo => {
                             let tipoeAnexo = anexo.split(";");
@@ -54,7 +56,7 @@ const getPublicacoesByUserId = async (req, res) =>{
                                     novosAnexos.tipo.push(tipoeAnexo[0])
                                     novosAnexos.anexo.push(tipoeAnexo[1])
                             }
-                            pub_compartilhada.anexos = anexos
+                            pub_compartilhada.anexos = novosAnexos
                         }
                         console.log(pub_compartilhada, "pintinho de travesti gay do caralho ")
                         publicacao.pub_compartilhada = pub_compartilhada;
@@ -78,7 +80,9 @@ const getPublicacoesSeguindo = async (req, res) =>{
             if(publicacao.anexos != "SEM ANEXO"){
                 let novosAnexos = []
                 let anexos = (publicacao.anexos).split('#');
-                
+                if(anexos == []){
+                    anexos = [anexos]
+                }
                 if(anexos.length > 0 ){
                     anexos.map(anexo => {
                         let tipoeAnexo = anexo.split(";");
@@ -104,7 +108,9 @@ const getPublicacoesSeguindo = async (req, res) =>{
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
                         let anexos = (pub_compartilhada.anexos).split('#');
-                        
+                        if(anexos == []){
+                            anexos = [anexos]
+                        }
                         if(anexos.length > 0 ){
                             anexos.map(anexo => {
                                 let tipoeAnexo = anexo.split(";");
@@ -121,7 +127,7 @@ const getPublicacoesSeguindo = async (req, res) =>{
                                 novosAnexos.tipo.push(tipoeAnexo[0])
                                 novosAnexos.anexo.push(tipoeAnexo[1])
                         }
-                        pub_compartilhada.anexos = anexos
+                        pub_compartilhada.anexos = novosAnexos
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))
@@ -146,7 +152,9 @@ const getPublicacaoById = async (req, res) =>{
             if(publicacao.anexos != "SEM ANEXO"){
                 let novosAnexos = []
                 let anexos = (publicacao.anexos).split('#');
-                
+                if(anexos == []){
+                    anexos = [anexos]
+                }
                 if(anexos.length > 0 ){
                     anexos.map(anexo => {
                         let tipoeAnexo = anexo.split(";");
@@ -172,7 +180,9 @@ const getPublicacaoById = async (req, res) =>{
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
                         let anexos = (pub_compartilhada.anexos).split('#');
-                        
+                        if(anexos == []){
+                            anexos = [anexos]
+                        }
                         if(anexos.length > 0 ){
                             anexos.map(anexo => {
                                 let tipoeAnexo = anexo.split(";");
@@ -189,7 +199,7 @@ const getPublicacaoById = async (req, res) =>{
                                 novosAnexos.tipo.push(tipoeAnexo[0])
                                 novosAnexos.anexo.push(tipoeAnexo[1])
                         }
-                        pub_compartilhada.anexos = anexos
+                        pub_compartilhada.anexos = novosAnexos
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))
@@ -212,7 +222,9 @@ const getPublicacoes = async (req, res) =>{
             if(publicacao.anexos != "SEM ANEXO"){
                 let novosAnexos = []
                 let anexos = (publicacao.anexos).split('#');
-                
+                if(anexos == []){
+                    anexos = [anexos]
+                }
                 if(anexos.length > 0 ){
                     anexos.map(anexo => {
                         let tipoeAnexo = anexo.split(";");
@@ -238,7 +250,9 @@ const getPublicacoes = async (req, res) =>{
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
                         let anexos = (pub_compartilhada.anexos).split('#');
-                        
+                        if(anexos == []){
+                            anexos = [anexos]
+                        }
                         if(anexos.length > 0 ){
                             anexos.map(anexo => {
                                 let tipoeAnexo = anexo.split(";");
@@ -255,7 +269,7 @@ const getPublicacoes = async (req, res) =>{
                                 novosAnexos.tipo.push(tipoeAnexo[0])
                                 novosAnexos.anexo.push(tipoeAnexo[1])
                         }
-                        pub_compartilhada.anexos = anexos
+                        pub_compartilhada.anexos = novosAnexos
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))

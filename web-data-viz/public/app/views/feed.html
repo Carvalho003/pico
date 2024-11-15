@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feed</title>
+    
+
     <link rel="icon" href="../../img/logo-pico-preta.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="../../css/root.css">
     <link rel="stylesheet" href="../../css/pilar.css">
     <link rel="stylesheet" href="../../css/feed.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/modal.css">
 </head>
 
@@ -146,25 +148,19 @@
                 <div id="foto_post_preview" class="absolute foto-user"></div>
             </div>
             <div id="div_arquivos_post" class="archives-group jf-start  flex row a-center">
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-paperclip' ></i>
-                    <span>Arquivo</span>
-                </div>
-                <div class="icon-desc flex row a-center">
+                <div class="relative" style="cursor: pointer;">
+                <div class="icon-desc  flex row a-center">
                     <i class='bx bxs-camera' ></i>
                     <span>Imagem</span>
+                    
                 </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bxs-music' ></i>
-                    <span>Música</span>
+                <input type="file" multiple id="ipt_anexos_post">
                 </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-current-location' ></i>
-                    <span>Localização</span>
-                </div>
+                
+                
             </div>
             <div id="preview_area_post" class="create-preview none anexos_post">
-                <div class="foto-post none">
+                <div class="foto-post ">
                         
                 </div>
             </div>
@@ -292,10 +288,35 @@
         </div>
 
     </div>
+
+
+    <div id="div_expandida" style="display: none;background-color: rgba(0,0,0,0.7);" class="backdrop">
+        <div class="imagem-expandida flex column a-center">
+            <div class="w-100 esc flex row jf-end">
+                <i onclick="closeExpandida()" class='bx bx-x fs-p'></i>
+            </div>
+            <div class="main-expand w-100 flex jf-center a-center">
+                <div class="swiper expand">
+                    <div class="swiper-wrapper " id="wrapper_expand">
+
+                    </div>
+                </div>
+                <div class="expand-btns">
+                    <div class="swiper-button-next  next-expand" ></div>
+                    <div class="swiper-button-prev  prev-expand" ></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 
 
+
+
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="../../js/posts_test.js"></script>
 
@@ -322,3 +343,5 @@
 <script src="../../js/Interacao/like.js"></script>
 
 <script src="../../js/User/publish.js"></script>
+
+<script src="../../js/Post/anexos.js"></script>

@@ -9,6 +9,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:userId/foto', (req, res) => {
+    console.log(req.body, "asdbsajdbakjsbdjabskdbasjkdabjsdbjk")
     userController.setFoto(req,res)
 })
 

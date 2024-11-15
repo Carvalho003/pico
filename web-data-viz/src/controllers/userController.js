@@ -40,6 +40,32 @@ const setFoto = (req, res) => {
     
 }
 
+const setFotoCapa = (req, res) => {
+    upload.single('image')(req, res, (err) => {
+        if (err) {
+          return res.status(500).json({ error: 'Erro ao processar o upload.', err: err });
+        }
+        if (!req.file) {
+          return res.status(400).json({ error: 'Nenhuma imagem recebida!' });
+        }
+
+          const foto =  req.file.filename;
+
+          model.setFotoCapa(foto, req.params.userId).then(resposta => {
+
+              res.json({ message: 'Imagem recebida com sucesso!', file: foto });
+          }).catch(e => {
+            res.json({
+                message: "Erro ao atualizar imagem",
+                error: e
+            })
+          })
+
+
+      });
+    
+}
+
 
 const store = async (req, res) =>{
      const { nome, email, dtNasc, password } = req.body;
@@ -222,5 +248,6 @@ module.exports = {
     search,
     setUsername,
     getById,
-    setFoto
+    setFoto,
+    setFotoCapa
 }

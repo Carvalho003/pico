@@ -101,11 +101,11 @@
             </nav>
         </nav>
         
-        <div class="w-100 
+        <div id="foto_capa_perfil" class="w-100 
         capa-perfil relative">
         <div id="foto_capa">
             <div id="editar_capa">
-                    <input id="ipt_foto_capa" type="file">
+                    <input onclick="abrirFoto()" id="ipt_foto_capa" type="file">
                     <span>Editar</span>
                     <i class='bx bx-edit'></i>
                 </div>
@@ -335,67 +335,8 @@
 <script src="../../js/user/editPerfil.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const inputImage = document.getElementById('ipt_foto');
-  const image = document.getElementById('image');
-  const cropButton = document.getElementById('cropButton');
-  const previewCanvas = document.getElementById('previewCanvas');
-  let cropper;
-
-  // Quando uma imagem é selecionada
-  inputImage.addEventListener('change', (event) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-      
-      reader.onload = () => {
-        image.src = reader.result;
-        image.style.display = 'block';
-
-        // Inicializa o CropperJS
-        if (cropper) {
-          cropper.destroy();
-        }
-        cropper = new Cropper(image, {
-          aspectRatio: 1, // Ajuste a proporção se necessário
-          viewMode: 1
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  // Quando o botão "Cortar" é clicado
-  cropButton.addEventListener('click', () => {
-    if (cropper) {
-      const croppedCanvas = cropper.getCroppedCanvas();
-      croppedCanvas.toBlob((blob) => {
-        console.log(blob)
-        const formData = new FormData();
-        formData.append("image", blob, `perfil${user.id}.png`);
-        fetch(`http://localhost:3333/api/users/${user.id}/foto`, {
-            method: 'PUT',
-            body: formData
-        }).then(res => res.json()).then(res => {
-            console.log(res);
-            user.foto = res.file
-            sessionStorage.setItem("user", JSON.stringify(user))
-            disableEditarPerfil()
-            fillPerfil();
-            foto_perfil_bola.style.backgroundImage = `url('../../uploads/${user.foto}')`
-            crop_space.style.display = 'none'
-        }).catch(e => {
-            console.log(e)
-        })
-
-      } )
-    //   previewCanvas.width = croppedCanvas.width;
-    //   previewCanvas.height = croppedCanvas.height;
-    //   const ctx = previewCanvas.getContext('2d');
-    //   ctx.drawImage(croppedCanvas, 0, 0);
-    }
-  });
-});
+   
 
 </script>
+
+<script src="../../js/User/setFotoCapa.js"></script>

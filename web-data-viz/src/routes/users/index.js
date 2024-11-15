@@ -12,6 +12,10 @@ router.put('/:userId/foto', (req, res) => {
     userController.setFoto(req,res)
 })
 
+router.put('/:userId/fotoCapa', (req, res) => {
+    userController.setFotoCapa(req,res)
+})
+
 router.post('/authenticate', async (req, res) => {
     userController.authenticate(req, res);
 })

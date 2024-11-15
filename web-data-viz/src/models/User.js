@@ -7,6 +7,12 @@ const setFoto = (foto, userId) => {
         return database.executar(sql)
 }
 
+const setFotoCapa = (foto, userId) => {
+        const sql = `UPDATE user SET fotoCapa = '${foto}' WHERE id = ${userId}`;
+        return database.executar(sql)
+}
+
+
 const store = async (user) => {
 
 
@@ -73,5 +79,6 @@ module.exports = {
     search,
     setUsername,
     getById,
-    setFoto
+    setFoto,
+    setFotoCapa
 }

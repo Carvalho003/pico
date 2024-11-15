@@ -20,6 +20,7 @@ const createPub = () => {
     try{
     div_arquivos_post.style.display = 'flex'
     preview_area_post.innerHTML = ``
+    post_compartilhado = undefined
     }catch(e){
         
     }

@@ -70,7 +70,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
     if(data.length){
         qtd = data.length
         let html = "";
-        data.map(publicacao => {
+        data.map(async (publicacao) => {
             html += `<div class="post post-perfil flex column">
                     <div class="infos-user-post between a-center flex row">
                         <div class="group-foto-nome-post a-center flex row">
@@ -79,7 +79,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                             html += ` style="background-image: url('../uploads/${publicacao.foto}')" `
                             }
                             html += ` class="foto-user-post"></div>
-                            <div class="name-time flex column">
+                            <div onclick="perfil(${publicacao.id})" class="name-time flex column">
                                 <span id="nome_user">${publicacao.nome}</span>
                                 <span id="tempo" class="text-fade">${publicacao.tempo}</span>
                             </div>
@@ -98,13 +98,13 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                     <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
                     </div>
                     </div>
-                    <div class="post-content flex column a-start">
+                    <div id="post_content${publicacao.postId}" class="post-content flex column a-start">
                         <p id="desc_post">${publicacao.descricao}</p>`
                         if(publicacao.anexos != 'SEM ANEXO'){
                         
                             html += `<div id="carregar${publicacao.postId}" onclick="carregarAnexos(this)" class="anexos_post">`
                             publicacao.anexos.map(anexo => {
-                            
+                                
                                 html += `<div class="foto-post"></div>`
 
                                 })
@@ -116,7 +116,93 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
 
                             
                        
+                        }else if(publicacao.compartilhamento != null){
+                            let pub_compartilhada = publicacao.pub_compartilhada
+                            html += `<div class="post w-100 post-perfil flex column">
+                            <div class="infos-user-post between a-center flex row">
+                                <div class="group-foto-nome-post a-center flex row">
+                                    <div` 
+                                    if(pub_compartilhada.foto){
+                                    html += ` style="background-image: url('../uploads/${pub_compartilhada.foto}')" `
+                                    }
+                                    html += ` class="foto-user-post"></div>
+                                    <div onclick="perfil(${pub_compartilhada.id})" class="name-time flex column">
+                                        <span id="nome_user">${pub_compartilhada.nome}</span>
+                                        <span id="tempo" class="text-fade">${pub_compartilhada.tempo}</span>
+                                    </div>
+                                </div>
+                                <div class="relative" onclick="abrirOpcoesPublicacao(this)">
+                                <div class="absolute menu-pub ">
+                                    <ul>
+                                        <li>
+                                            <a href="http://localhost:3333/perfil/${pub_compartilhada.id}"><p>Ver Perfil de ${(publicacao.nome).split(" ")[0]}...</p></a>
+                                        </li>
+                                        <li>
+                                            <a href="">Compartilhar</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <i onclick="abrirOpcoes()" class='bx bx-dots-vertical-rounded'></i>
+                            </div>
+                            </div>
+                            <div id="post_content${pub_compartilhada.id}" class="post-content flex column a-start">
+                                <p id="desc_post">${pub_compartilhada.descricao}</p>`
+                                if(pub_compartilhada.anexos != 'SEM ANEXO'){
+                                
+                                    html += `<div id="carregar${pub_compartilhada.postId}" onclick="carregarAnexos(this)" class="anexos_post">`
+                                    pub_compartilhada.anexos.map(anexo => {
+                                        
+                                        html += `<div class="foto-post"></div>`
+        
+                                        })
+                                    
+                                    html += `</div>`
+        
+                                     elementosCarregarAnexos.push(`carregar${pub_compartilhada.postId}`)
+                                    
+        
+                                    
+                                    }
+                                
+                                console.log("vsh pq n vai")
+                                
+                            html += `</div>
+                            <div class="post_interaction flex row a-center">
+                                <div class="group-interaction-icon a-center flex row">`
+                                if(pub_compartilhada.likou > 0){
+                                    html += `<i onclick="likeDeslike(${pub_compartilhada.postId}, this)" class='bx bxs-like  text-primary' ></i>`
+                                }else{
+                                    html += `<i onclick="likeDeslike(${pub_compartilhada.postId}, this)" class='bx bxs-like  text-fade' ></i>`
+                                }
+                                    html += `<span>${pub_compartilhada.likes}</span>
+                                </div>
+                                <div onclick="showComents(this, ${pub_compartilhada.postId})" class="group-interaction-icon a-center flex row">
+                                    <i class='bx bx-comment-dots text-fade'></i>
+                                    <span>Comentar</span>
+                                </div>
+        
+                                <div onclick="share(this)" class="group-interaction-icon a-center flex row">
+                                    <i class='bx bx-share text-fade' ></i>
+                                    <span>Compartilhar</span>
+                                </div>
+                            </div>
+        
+                            <div style="display:none" class="post-coments  w-100 flex column a-start">
+                            <span>Comentários</span>
+                            
+                           
+                            <span>Carregar mais...</span>
+                            <div class="flex column w-100">
+                                <span>Comentar:</span>
+                                <textarea class="w-100" name="" placeholder="Comentar.." id="textarea-comentario"></textarea>
+                                <button onclick="storeComentario(${pub_compartilhada.postId}, this)" id="button-comentario">Comentar</button>
+                            </div>
+                        </div>
+        
+                        </div>`
+                            
                         }
+                        console.log("vsh pq n vai")
                         
                     html += `</div>
                     <div class="post_interaction flex row a-center">
@@ -126,21 +212,21 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                         }else{
                             html += `<i onclick="likeDeslike(${publicacao.postId}, this)" class='bx bxs-like  text-fade' ></i>`
                         }
-                            
                             html += `<span>${publicacao.likes}</span>
                         </div>
-                        <div  onclick="showComents(this, ${publicacao.postId})" class="group-interaction-icon a-center flex row">
+                        <div onclick="showComents(this, ${publicacao.postId})" class="group-interaction-icon a-center flex row">
                             <i class='bx bx-comment-dots text-fade'></i>
                             <span>Comentar</span>
-                        </div>
-
-                        <div class="group-interaction-icon a-center flex row">
+                        </div>`
+                        if(publicacao.compartilhamento == null){
+                        html+= ` <div onclick="share(this)" class="group-interaction-icon a-center flex row">
                             <i class='bx bx-share text-fade' ></i>
                             <span>Compartilhar</span>
-                        </div>
-                    </div>
+                        </div>`
+                        }
+                    html+= `</div>
 
-                 <div style="display:none" class="post-coments  w-100 flex column a-start">
+                    <div style="display:none" class="post-coments  w-100 flex column a-start">
                     <span>Comentários</span>
                     
                    
@@ -153,6 +239,7 @@ fetch(`http://localhost:3333/api/posts/perfil/${id}/${user.id}`, {
                 </div>
 
                 </div>`
+                
         })
         
         posts_div.innerHTML = html

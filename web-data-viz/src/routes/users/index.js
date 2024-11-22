@@ -8,8 +8,19 @@ router.post('/', async (req, res) => {
     userController.store(req, res);
 });
 
+router.put("/:userId/nome", (req, res) => {
+    userController.setNome(req, res);
+})
+
+router.put("/:userId/email", (req, res) => {
+    userController.setEmail(req, res);
+})
+
+router.put("/:userId/senha", (req, res) => {
+    userController.setSenha(req, res);
+})
+
 router.put('/:userId/foto', (req, res) => {
-    console.log(req.body, "asdbsajdbakjsbdjabskdbasjkdabjsdbjk")
     userController.setFoto(req,res)
 })
 

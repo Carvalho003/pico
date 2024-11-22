@@ -165,6 +165,68 @@ const search = async(req,res) =>{
     }
 }
 
+const setNome = (req, res) => {
+    const {nome} = req.body;
+    const userId = req.params.userId;
+    if(nome){
+        model.setNome(nome, userId).then(response => {
+            res.json(response)
+        }).catch(e => {
+            res.json({
+                message: "Erro interno de servidor",
+                error: e
+            })
+        })
+    }else{
+        res.json({
+            message: "Nome inválido"
+        })
+    }
+}
+
+
+const setEmail = (req, res) => {
+    const {email} = req.body;
+    const userId = req.params.userId;
+    if(email){
+        model.setEmail(email, userId).then(response => {
+            res.json(response)
+        }).catch(e => {
+            if(e.code == "ER_DUP_ENTRY"){
+                res.status(200).json({
+                    message: 'O email já esta sendo utilizado'
+                })
+            }else{
+                res.status(500).json(e.sqlMessage)
+            }
+        })
+    }else{
+        res.json({
+            message: "Email inválido"
+        })
+    }
+}
+
+const setSenha = (req, res) => {
+    const {senha} = req.body;
+    const userId = req.params.userId;
+    if(senha){
+        model.setPassword(senha, userId).then(response => {
+            res.json(response)
+        }).catch(e => {
+            res.json({
+                message: "Erro interno de servidor",
+                error: e
+            })
+        })
+    }else{
+        res.json({
+            message: "Senha inválida"
+        })
+    }
+}
+
+
 const setUsername = async(req,res) => {
     let { userName } = req.body;
 
@@ -249,5 +311,8 @@ module.exports = {
     setUsername,
     getById,
     setFoto,
-    setFotoCapa
+    setFotoCapa,
+    setNome,
+    setEmail,
+    setSenha
 }

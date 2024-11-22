@@ -32,4 +32,8 @@ router.get('/perfil/:id', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/app/views/', 'perfil.html'));
 })
 
+router.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/app/views/', 'dashboard.html'));
+})
+
 module.exports = router;

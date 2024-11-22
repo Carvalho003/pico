@@ -165,45 +165,40 @@
     
 
     <div id="backdrop" class="flex center">
-    <div  class="modal_publicacao p-10 modal" id="modal_publicacao">
-        <main class="body-modal  flex column  w-100 a-center">
-            <div class="text-area-group relative ">
-                <textarea  placeholder="Compartilhe algo..." rows="4" class="w-100 "  id="desc_post_create"></textarea>
-                <div id="foto_post_preview" class="absolute foto-user"></div>
-            </div>
-            <div id="div_arquivos_post" class="archives-group jf-start  flex row a-center">
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-paperclip' ></i>
-                    <span>Arquivo</span>
+        <div  class="modal_publicacao p-10 modal" id="modal_publicacao">
+            <main class="body-modal  flex column  w-100 a-center">
+                <div class="text-area-group relative ">
+                    <textarea  placeholder="Compartilhe algo..." rows="4" class="w-100 "  id="desc_post_create"></textarea>
+                    <div id="foto_post_preview" class="absolute foto-user"></div>
                 </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bxs-camera' ></i>
-                    <span>Imagem</span>
-                </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bxs-music' ></i>
-                    <span>Música</span>
-                </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-current-location' ></i>
-                    <span>Localização</span>
-                </div>
-            </div>
-            <div id="preview_area_post" class="create-preview none anexos_post">
-                <div class="foto-post none">
+                <div id="div_arquivos_post" class="archives-group jf-start  flex row a-center">
+                    <div class="relative" style="cursor: pointer;">
+                    <div class="icon-desc  flex row a-center">
+                        <i class='bx bxs-camera' ></i>
+                        <span>Imagem</span>
                         
+                    </div>
+                    <input type="file" multiple id="ipt_anexos_post">
+                    </div>
+                    
+                    
                 </div>
-            </div>
-
-            <div class="footer-modal  flex jf-end ">
-                <button onclick="publish()">publicar</button>
-            </div>
-
-        </main>
-
-    </div>
-
-    </div>
+                <div id="preview_area_post" class="create-preview none anexos_post">
+                    <div class="foto-post ">
+                            
+                    </div>
+                </div>
+    
+                <div class="footer-modal  flex jf-end ">
+                    <button onclick="publish()">publicar</button>
+                </div>
+    
+            </main>
+    
+        </div>
+        
+        
+        </div>
 
     <div id="modal_list" class="backdrop back-list">
         <div class="modal modal-list">
@@ -357,9 +352,6 @@
 
 <script src="../../js/user/editPerfil.js"></script>
 
-<script>
-   
-
-</script>
+<script src="../../js/Post/anexos.js"></script>
 
 <script src="../../js/User/setFotoCapa.js"></script>

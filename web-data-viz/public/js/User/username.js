@@ -1,6 +1,14 @@
 
 const setUserName = async () => {
-    const userNameDigitado = document.getElementById('ipt_userName').value 
+    let url = window.location.href;
+            url = url.split("/");
+            url = url[url.length -1];
+    let userNameDigitado;            
+    if(url != "configuracoes"){        
+         userNameDigitado = document.getElementById('ipt_userName').value 
+    }else{
+         userNameDigitado = userNameInput.value
+    }
     if(validateUserName(userNameDigitado)){
         const userId = user.id;
 
@@ -8,7 +16,7 @@ const setUserName = async () => {
         const data = {
             userName: userNameDigitado
         }
-        await fetch(`http://localhost:3333/api/users/${userId}/username`, {
+        return fetch(`http://localhost:3333/api/users/${userId}/username`, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -16,13 +24,17 @@ const setUserName = async () => {
             }
         }).then(res => res.json()).then(data =>{
             console.log(data)
+            if(url != "configuracoes"){
             if(data.message && data.message == "UserName atualizado"){
                 addUserName(data.userName);
                 reFill();
                 modalUsername.style.display = 'none';
             }else{
-
+                
                 span_erro_username.innerText = data.message;
+            }
+            }else{
+                return data;
             }
         })
 

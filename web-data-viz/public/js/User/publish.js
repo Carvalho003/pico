@@ -48,6 +48,7 @@ const storeAnexo = (postId) => {
             body: formData,
         }).then(response => response.json()).then(response => {
             console.log(response)
+            carregarPosts()
         }).catch(e => {
             console.error(e)
         });

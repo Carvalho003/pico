@@ -9,7 +9,7 @@ inputPost.addEventListener('change',  (e) => {
 
     if(files && files.length > 0){
 
-        console.log('entrouu')
+        
         
         if(files.length == 1){
             const reader = new FileReader()

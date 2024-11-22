@@ -67,7 +67,11 @@
             <div class="head-config w-100 flex row between">
                 <div class="meus-dados-icon flex a-center">
                     <span>Meus Dados</span>
-                    <i class='bx bx-edit'></i>
+                    <i onclick="ativarEdicao(this)" class='bx bx-edit'></i>
+                    <div id="grupo_icones" class="icons flex row a-center jf-center">
+                        <i onclick="desativarEdicao()" class='bx bx-x'></i>
+                        <i onclick="editar()" class='bx bx-check'></i>
+                    </div>
                 </div>
                 <div class="tema-switch flex a-center">
                     <span>TEMA:</span>
@@ -80,39 +84,40 @@
 
             <div class="config-content w-100 flex column">
                 <div class="linha-infos w-100 flex between row">    
-                    <div class="label-valor flex column a-start">
+                    <div id="div_nome" class="label-valor flex column a-start">
                         <span class="text-fade">Nome</span>
-                        <span>Hugo Carvalho</span>
+                        <span id="nome_user">Hugo Carvalho</span>
+                        <input type="text" id="nome_user_ipt">
                     </div>
                     <div class="label-valor direita flex column a-start">
                         <span class="text-fade">Data de Nascimento</span>
-                        <span class="ultimo-texto">30/09/2003</span>
+                        <span id="span_dtNasc" class="ultimo-texto">30/09/2003</span>
                     </div>
                 </div>
                 <div class="linha-infos w-100 flex between row">    
                     <div class="label-valor flex column a-start">
-                        <span class="text-fade">Username</span>
-                        <span class="ultimo-texto">@carvalsk8</span>
+                        <span  class="text-fade">Username</span>
+                        <span id="span_userName" class="ultimo-texto">@carvalsk8</span>
+                        <input type="text" id="userName_ipt">
                     </div>
                     <div class="label-valor direita flex column a-start">
                         <span class="text-fade">Data de Ingresso</span>
-                        <span>18/10/2024</span>
+                        <span id="span_created_at">18/10/2024</span>
                     </div>
                 </div>
                 <div class="linha-infos ultima-linha w-100 flex between row">    
                     <div class="label-valor flex column a-start">
                         <span class="text-fade">Email</span>
-                        <span>carvalhohugo425@gmail.com</span>
+                        <span id="span_email">carvalhohugo425@gmail.com</span>
                     </div>
                     
                 </div>
 
                 <div class="danger-zone flex column a-start">
                     <span>Zona de Perigo</span>
-                    <div class="group-buttons w-100 flex row between">
-                        <button>ALTERAR SENHA</button>
-                        <button>DESATIVAR CONTA</button>
-                        <button>ALTERAR EMAIL</button>
+                    <div class="group-buttons w-100 flex row jf-start">
+                        <button onclick="openModalEditar('senha')">ALTERAR SENHA</button>
+                        <button onclick="openModalEditar('email')">ALTERAR EMAIL</button>
                     </div>
                 </div>
             </div>
@@ -169,56 +174,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="create-div flex column">
-                    <span>Criar</span>
-                    <span class="new-pub text-fade">Nova Publicação</span>
-                    <div onclick="createPub()" class="square-new div-abrir-modal flex a-center jf-center">
-                        <i class='bx bxs-plus-circle'></i>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </aside>
 
-    <div id="backdrop" class="flex center">
-    <div  class="modal_publicacao p-10 modal" id="modal_publicacao">
-        <main class="body-modal  flex column  w-100 a-center">
-            <div class="text-area-group relative ">
-                <textarea  placeholder="Compartilhe algo..." rows="4" class="w-100 "  id="desc_post_create"></textarea>
-                <div class="absolute foto-user"></div>
-            </div>
-            <div class="archives-group jf-start  flex row a-center">
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-paperclip' ></i>
-                    <span>Arquivo</span>
-                </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bxs-camera' ></i>
-                    <span>Imagem</span>
-                </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bxs-music' ></i>
-                    <span>Música</span>
-                </div>
-                <div class="icon-desc flex row a-center">
-                    <i class='bx bx-current-location' ></i>
-                    <span>Localização</span>
-                </div>
-            </div>
-            <div class="create-preview none anexos_post">
-                <div class="foto-post none">
-                        
-                </div>
-            </div>
 
-            <div class="footer-modal  flex jf-end ">
-                <button>publicar</button>
+    <div class="backdrop"  id="backdrop-username">
+        <div class="modal modal-username">
+            <span id="span_campo_alterar">Como você quer ser chamado?</span>
+            <div class="input-div w-100">
+                <input id="ipt_campo_modal"  type="text">
             </div>
-
-        </main>
-
+            <span id="span_erro_modal" class="text-danger"></span>
+            <div class="btn-div w-100 flex jf-end">
+                <button onclick="closeModalEditar()" style="margin-right: 10px !important;width: 120px;background-color: #fff;color: var(--primary-color);">Cancelar</button>
+                <button type="button" onclick="editarComModal()" id="close-modal" >OK</button>
+            </div>
+        </div>
     </div>
+    <div class="backdrop" id="backdrop-erro">
+        <div class="modal modal-username">
+            <span id="span_campo_alterar_erro">Como você quer ser chamado?</span>
+            
+            <span id="span_erro_alterar_modal" class="text-danger"></span>
+            <div class="btn-div w-100 flex jf-end">
+                <button type="button" id="close-modal" onclick="onclick=fecharModalErro()">OK</button>
+            </div>
+        </div>
     </div>
+    
 
     <div id="modal_list" class="backdrop back-list">
         <div class="modal modal-list">
@@ -308,7 +293,7 @@
 
 <script src="../../js/posts_test.js"></script>
 
-<script src="../../js/modal-publicacao.js"></script>
+<!-- <script src="../../js/modal-publicacao.js"></script> -->
 
 <script src="../../js/tema.js"></script>
 
@@ -319,3 +304,9 @@
 <script src="../../js/Fill/navPerfil.js"></script>
 
 <script src="../../js/modal_pesquisa.js"></script>
+
+<script src="../../js/Cadastro/cadastrar.js"></script>
+
+<script src="../../js/User/username.js"></script>
+
+<script src="../../js/Config/edit.js"></script>

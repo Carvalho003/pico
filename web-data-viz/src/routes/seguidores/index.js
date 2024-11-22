@@ -9,6 +9,10 @@ router.get('/count/seguidores/:userId', async (req,res) =>{
     controller.countSeguidoresByUserId(req, res);
 })
 
+router.put("/setVisto/:userId/:userLogadoId", (req, res) =>{
+    controller.setVisto(req, res);
+})
+
 router.get('/count/seguindo/:userId', async (req,res) =>{
     controller.countSeguindoByUserId(req, res);
 })

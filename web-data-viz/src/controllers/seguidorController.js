@@ -15,6 +15,17 @@ const countSeguidoresByUserId = async (req, res) => {
 
 }
 
+const setVisto = (req, res) => {
+    const userId = req.params.userId;
+    const userLogadoId = req.params.userLogadoId;
+
+    model.setVisto(userId, userLogadoId).then(response => {
+        res.json(response)
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 const getSugestoes = (req, res) => {
     const userId = req.params.userId;
     
@@ -199,5 +210,6 @@ module.exports = {
     getSeguidoresByUserId,
     seguir,
     deixarSeguir,
-    getSugestoes
+    getSugestoes,
+    setVisto
 }

@@ -76,6 +76,7 @@
     }
     & .foto-infos{
         gap: 15px;
+        cursor: pointer;
     }
     & .foto-user{
         width: 50px;

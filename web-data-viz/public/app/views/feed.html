@@ -40,7 +40,7 @@
                         <a class="flex row a-center" href=""><i class='bx bxs-home-alt-2'></i><span>Feed</span></a>
                     </li>
                     <li>
-                        <a class="flex row a-center" onclick="openList()" href="#"><i class='bx bxs-bell' ></i><span>Notificações</span></a>
+                        <a class="flex row a-center" onclick="openList()"><i class='bx bxs-bell' ></i><span id="span_notif">Notificações</span></a>
                     </li>
                     <li>
                         <a class="flex row a-center" id="perfil_link"><i class='bx bxs-user'></i><span>Perfil</span></a>
@@ -195,7 +195,7 @@
                 <span id="list-title">Notificações</span>
                 <i onclick="closeList()" class='bx bx-x'></i>
             </div>
-            <div class="flex lista w-100 column a-start">
+            <div id="div_notif" class="flex lista w-100 column a-start">
                 <div class="foto-infos a-center flex row">
                     <div class="foto-user"></div>
                     <div class="nome-tempo flex column">
@@ -345,3 +345,5 @@
 <script src="../../js/User/publish.js"></script>
 
 <script src="../../js/Post/anexos.js"></script>
+
+<script src="../../js/Notificacoes/notificacoes.js"></script>

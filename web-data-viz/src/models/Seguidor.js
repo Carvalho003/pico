@@ -10,6 +10,12 @@ const checkSeguir = async (seguido_id, seguidor_id) => {
         
 }  
 
+const setVisto = (userId, userLogadoId) => {
+        const sql = `UPDATE seguidor SET visto = now() WHERE seguidor_id = ${userId} AND seguido_id = ${userLogadoId}`;
+
+        return database.executar(sql);
+}
+
 const getSugestoes = (userId) => {
         const sql = `SELECT u.nome, u.foto,  u.id FROM user as u
 WHERE (SELECT count(user.id) FROM user 
@@ -130,5 +136,6 @@ module.exports = {
     getCountSeguindoById,
     searchSeguindoByUserId,
     searchSeguidoresByUserId,
-    getSugestoes
+    getSugestoes,
+    setVisto
 }

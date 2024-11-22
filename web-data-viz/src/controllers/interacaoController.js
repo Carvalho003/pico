@@ -30,6 +30,27 @@ const storeLike = (req, res) => {
     }
 }
 
+const getNotificacoes = (req, res) => {
+    const logadoId = req.params.logadoId;
+    const limit = req.params.limit;
+
+    model.getNotificacoes(logadoId, limit).then(response => {
+        res.json(response)
+    }).catch(e  => {
+        res.json(e)
+    })
+}
+
+const countNotificacoes = (req, res) => {
+    const logadoId = req.params.logadoId;
+
+    model.countNotificacoes(logadoId).then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 const storeComentario = (req,res) => {
     const userId = req.params.userId;
     const postId = req.params.postId;
@@ -60,11 +81,24 @@ const getComentario = (req, res) => {
     
 }
 
+const setVisto = (req, res) => {
+    const interacaoId = req.params.interacaoId;
+
+    model.setVisto(interacaoId).then(response => {
+        res.json(response)
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 
 
 
 module.exports = {
     storeLike,
     storeComentario,
-    getComentario
+    getComentario,
+    getNotificacoes,
+    countNotificacoes,
+    setVisto
 }

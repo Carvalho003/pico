@@ -31,7 +31,7 @@ const store = async (user) => {
 
 const authenticate = async (email, password) => {
    
-        const sql = `SELECT id, nome, userName, email, foto, created_at FROM user WHERE email = '${email}' AND password = '${password}'`;
+        const sql = `SELECT id, nome, userName, email, foto, created_at, nivel_permissao FROM user WHERE email = '${email}' AND password = '${password}'`;
         return database.executar(sql);
 
         
@@ -70,7 +70,7 @@ const setUsername = async(userId, userName) => {
 
 const getById = async (id) => {
     
-        const sql = `SELECT id, nome, userName, foto, email, dtNasc, created_at, fotoCapa FROM user WHERE id = ${id}`;
+        const sql = `SELECT id, nome, userName, foto, email, dtNasc, created_at, fotoCapa, nivel_permissao FROM user WHERE id = ${id}`;
 
         return database.executar(sql);
 

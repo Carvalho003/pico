@@ -194,7 +194,7 @@ main{
 }
 
 .bg-primary{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
 }
 
 .paragrafo{
@@ -487,7 +487,7 @@ main{
 }
 
 .text-white{
-    color: #fff;
+    color: #fff !important;
 }
 
 .text-primary{
@@ -496,6 +496,9 @@ main{
 
 .text-fade{
     color: var(--fade-color);
+}
+.grafico{
+    height: 200px !important;
 }
 
 .relative{

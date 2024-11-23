@@ -5,6 +5,7 @@
     font-family: "Poppins", sans-serif !important;
     font-weight: 300;
      font-style: normal;
+     
 }
 .esc i{
     cursor: pointer;
@@ -150,6 +151,10 @@ body{
 
 .nav-options ul .active a{
     color: var(--light-font) !important;
+}
+
+.div_loading img{
+    filter: grayscale(1);
 }
 
 

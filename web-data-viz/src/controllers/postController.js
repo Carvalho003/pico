@@ -34,7 +34,8 @@ const getPublicacoesByUserId = async (req, res) =>{
                 }else if(publicacao.compartilhamento != null){
                     let pub_compartilhada = await model.getPublicacaoById(userId, publicacao.compartilhamento)
                         pub_compartilhada = pub_compartilhada[0];
-                        console.log("E SE EU FALASSE O QUE SINTO")
+                        
+
                         
                         if(pub_compartilhada.anexos != "SEM ANEXO"){
                             let novosAnexos = []
@@ -58,10 +59,10 @@ const getPublicacoesByUserId = async (req, res) =>{
                             }
                             pub_compartilhada.anexos = novosAnexos
                         }
-                        console.log(pub_compartilhada, "pintinho de travesti gay do caralho ")
+                        
                         publicacao.pub_compartilhada = pub_compartilhada;
         }}))
-            console.log(publicacoes, "DESGRALA")
+            
             res.status(200).json(publicacoes)
         }else{
             res.status(200).json({publicacoes: 0})
@@ -72,7 +73,7 @@ const getPublicacoesByUserId = async (req, res) =>{
 
 const getPublicacoesSeguindo = async (req, res) =>{
     const userId = req.params.userLogadoId;
-    console.log(userId, "userssss")
+    
     let publicacoes = await model.getPublicacoesSeguindo(userId)
 
     if(publicacoes.length > 0){
@@ -103,7 +104,7 @@ const getPublicacoesSeguindo = async (req, res) =>{
             }else if(publicacao.compartilhamento != null){
                 let pub_compartilhada = await model.getPublicacaoById(userId, publicacao.compartilhamento)
                     pub_compartilhada = pub_compartilhada[0];
-                    console.log("E SE EU FALASSE O QUE SINTO")
+                    
                     
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
@@ -131,7 +132,7 @@ const getPublicacoesSeguindo = async (req, res) =>{
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))
-        console.log(publicacoes, "todos aqui")
+        
         res.status(200).json(publicacoes)
     }else{
         res.status(200).json({publicacoes: 0})
@@ -144,7 +145,7 @@ const getPublicacoesSeguindo = async (req, res) =>{
 const getPublicacaoById = async (req, res) =>{
     const userId = req.params.userId;
     const postId = req.params.postId;
-    console.log(userId, "userssss")
+    
     let publicacoes = await model.getPublicacaoById(userId, postId)
 
     if(publicacoes.length > 0){
@@ -175,7 +176,7 @@ const getPublicacaoById = async (req, res) =>{
             }else if(publicacao.compartilhamento != null){
                 let pub_compartilhada = await model.getPublicacaoById(userId, publicacao.compartilhamento)
                     pub_compartilhada = pub_compartilhada[0];
-                    console.log("E SE EU FALASSE O QUE SINTO")
+                    
                     
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
@@ -203,7 +204,7 @@ const getPublicacaoById = async (req, res) =>{
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))
-        console.log(publicacoes, "todos aqui")
+        
         res.status(200).json(publicacoes)
     }else{
         res.status(200).json({publicacoes: 0})
@@ -214,7 +215,7 @@ const getPublicacaoById = async (req, res) =>{
 
 const getPublicacoes = async (req, res) =>{
     const userId = req.params.userId;
-    console.log(userId, "userssss")
+    
     let publicacoes = await model.getPublicacoes(userId)
 
     if(publicacoes.length > 0){
@@ -245,7 +246,7 @@ const getPublicacoes = async (req, res) =>{
             }else if(publicacao.compartilhamento != null){
                 let pub_compartilhada = await model.getPublicacaoById(userId, publicacao.compartilhamento)
                     pub_compartilhada = pub_compartilhada[0];
-                    console.log("E SE EU FALASSE O QUE SINTO")
+                    
                     
                     if(pub_compartilhada.anexos != "SEM ANEXO"){
                         let novosAnexos = []
@@ -273,7 +274,7 @@ const getPublicacoes = async (req, res) =>{
                     }
                     publicacao.pub_compartilhada = pub_compartilhada;
     }}))
-        console.log(publicacoes, "todos aqui")
+        
         res.status(200).json(publicacoes)
     }else{
         res.status(200).json({publicacoes: 0})

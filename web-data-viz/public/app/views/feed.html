@@ -48,6 +48,9 @@
                     <li>
                         <a class="flex row a-center" href="./configuracoes"><i class='bx bxs-wrench' ></i><span>Configurações</span></a>
                     </li>
+                    <li id="li_dash" style="display: none;">
+                        <a class="flex row a-center" href="./dashboard"><i class='bx bx-pie-chart-alt'></i><span>Dashboard</span></a>
+                    </li>
                 </ul>
             </nav>
 
@@ -271,6 +274,10 @@
 
     </div>
 
+    <div id="div_loading" style="display: flex;animation: none;" class="backdrop">
+        <img src="../../img/load2-unscreen.gif" width="300px" alt="">
+    </div>
+
     <div id="modal_search" class="backdrop  back-list">
         <div class="modal modal-list modal-search">
             <div class="head flex row between">
@@ -347,3 +354,14 @@
 <script src="../../js/Post/anexos.js"></script>
 
 <script src="../../js/Notificacoes/notificacoes.js"></script>
+
+<script>
+    area_posts.style.display = 'none'
+    
+    setTimeout(() =>{
+        area_posts.style.display = 'flex'
+        div_loading.style.display = 'none'
+    }, 1.5* 1000)
+</script>
+
+<script src="../../js/Fill/permissao.js"></script>

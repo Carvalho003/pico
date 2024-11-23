@@ -21,28 +21,50 @@
         <nav class="nav container flex between align-center">
             <div class="logo-nav">
             </div>
-                <ul class="nav-list flex row between align-center">
-                    <li class="nav-item active">
-                        <a  href="">Pilar</a>
+                <ul id="lista_sections" class="nav-list flex row between align-center">
+                    <li onclick="changeSection(0)" class="nav-item active">
+                        <a  href="#pilar">Pilar</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="">História</a>
+                    <li onclick="changeSection(1)" class="nav-item">
+                        <a href="#historia">História</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="">Filosofia</a>
+                    <li onclick="changeSection(2)" class="nav-item">
+                        <a href="#filosofia">Filosofia</a>
                     </li class="nav-item">
-                    <li>
-                        <a href="">Valores</a>
+                    <li onclick="changeSection(3)">
+                        <a href="#valores">Valores</a>
                     </li>
                     <li class="nav-item">
-                        <a href="">Feed</a>
+                        <a id="a_feed" href="./login">Feed</a>
                     </li>
                 </ul>
-                <button onclick="redirectLogin()">Login</button>
+                <button id="btn_login"  onclick="redirectLogin()">Login</button>
+                <nav style="display: none;" id="nav_user" class="nav-head relative user-infos center">
+                    <span id="user_name"></span>
+                    <div id="foto_user_feed" class="foto_user">
+                        
+                    </div>
+                    
+                    <i onclick="abrirOpcoes()" class='bx bx-chevron-down'></i>
+                    <div class="absolute menu-nav">
+                        <ul>
+                            <li>
+                                <a id="perfil_li" >Perfil</a>
+                            </li>
+                            <li>
+                                <a href="./configuracoes">Configurações</a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;" onclick="logout()">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </nav>
         </nav>
     </header>
     <main class="container-all">
-        <section class="container column fs-m text-white">
+        <section id="pilar" class="container column fs-m text-white">
             <span>seu pico de skate</span>
             <span class="text-primary">só que digital</span>
         </section>
@@ -68,7 +90,7 @@
     </section>
 
     <section class="all carrossel">
-        <div class="swiper historiaSwiper">
+        <div id="historia" class="swiper historiaSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide flex center foto como">
                     <div class="container flex  align-end column ">
@@ -76,13 +98,26 @@
                     </div>
                 </div>
                 <div class="swiper-slide foto anos50">
-
+                    <div class="container flex  align-end column ">
+                        <span class="fs-m text-white">ANOS 50</span>
+                        <span class="fs-p">com o objetivo de suprir a má temporada de ondas, e garantir um método de ‘surfar’ no asfalto, não se sabe ao certo de quem foi a ideia mas esse crédito se da a um grupo de surfistas da Califórnia, eles pegaram tábuas de madeira e encaixaram rodas de patins nelas, assim criaram o que ficou conhecido como: sidewalk surfing(surfe de calçada), o que evidentemente levou ao que conhecemos hoje como Skate.</span>
+                    </div>
                 </div>
                 <div class="swiper-slide foto anos60">
-
+                    <span style="text-align: left;" class="fs-m title-foto">EVOLUÇÃO</span>
+                    <span class="fs-p desc-foto">No decorrer das décadas, a ideia foi evoluindo, com a criação do kicktail, que é a parte mais ‘quadrada’ na parte de trás do skate, em 1960, começaram a surgir campeonatos e a fabricação em massa do carrinho. </span>
                 </div>
                 <div class="swiper-slide foto anos70">
-
+                    <span style="text-align: left;" class="fs-m title-foto">POPULARIZAÇÃO</span>
+                    <span class="fs-p desc-foto">Chegando em uma popularização em massa em 1970, quando chegaram novas tecnologias a ideia, como rodas de poliuretano, que proporcionou mais desempenho e aderência aos solos.</span>
+                </div>
+                <div class="swiper-slide foto anos80">
+                    <span style="text-align: left;" class="fs-m title-foto">STREET SKATE</span>
+                    <span class="fs-p desc-foto">Em 1980, surge o street skate, rampas, Half-pipes etc. Impulsionados por skatistas como Tony Hawk, figura mundialmente conhecida e Rodney Mullen, conhecido por ser inventor de diversas manobras do skate, como Ollie no solo, Kickflip e todas as suas variantes.</span>
+                </div>
+                <div class="swiper-slide foto anos00">
+                    <span style="text-align: left;" class="fs-m title-foto">SKATE ATUAL</span>
+                    <span class="fs-p desc-foto">O SKATE SEGUE EM CONSTANTE EVOLUÇÃO ATÉ HOJE, SENDO INCLUIDO RECENTEMENTE NAS OLIMPÍADAS E COM CADA VEZ MAIS ESPAÇO NO MAIN STREAM.</span>
                 </div>
             </div>
         </div>
@@ -95,7 +130,7 @@
         </div>
     </section>
 
-    <section class="esporteFilosofia column bg-primary w-100 center flex">
+    <section id="filosofia" class="esporteFilosofia column bg-primary w-100 center flex">
         <div class="title-esporte center flex container  fs-g relative">
             <span class="fs-g absolute text-white text-esporte">ESPORTE</span>
             <span class="fs-g">VS</span>
@@ -123,7 +158,7 @@
         </div>
     </section>
 
-    <section class="valores-sec flex center column">
+    <section id="valores" class="valores-sec flex center column">
         <div class="valores-title fs-m container  relative flex align-end column">
             <span class="text-primary">VALORES</span>
             <span class="text-black val-preto absolute">VALORES</span>
@@ -251,15 +286,11 @@
                         <div class="triangle-down"></div>
                     </div>
                     <div class="group-falas text-white  flex column">
-                        <span>ANDAR DE SKATE
-                            POR AMOR, FAZENDO
-                            AS COISAS CERTAS E NÃO 
-                            QUERER SER MAIS QUE NINGUÉM
-                            AS COISAS VÃO ACONTECENDO NATURALMENTE</span>
-                         <span class="autor fs-p " style="color: #555;">tiago lemos</span>   
+                        <span>a vida me ensinou a nunca desistir nem ganhar e nem perder mas procurar evoluir</span>
+                         <span class="autor fs-p " style="color: #555;">chorão</span>   
                     </div>
 
-                    <div class="foto-skatista absolute">
+                    <div class="foto-skatista cbjr absolute">
 
                     </div>
                 </div>
@@ -269,15 +300,11 @@
                         <div class="triangle-down"></div>
                     </div>
                     <div class="group-falas text-white  flex column">
-                        <span>ANDAR DE SKATE
-                            POR AMOR, FAZENDO
-                            AS COISAS CERTAS E NÃO 
-                            QUERER SER MAIS QUE NINGUÉM
-                            AS COISAS VÃO ACONTECENDO NATURALMENTE</span>
-                         <span class="autor fs-p " style="color: #555;">tiago lemos</span>   
+                        <span>GASTEI SOLA PRA CHEGAR, PIQUE LUAN NAS LIXAS</span>
+                         <span class="autor fs-p " style="color: #555;">RASHID SOBRE LUAN DE OLIVEIRA</span>   
                     </div>
 
-                    <div class="foto-skatista absolute">
+                    <div class="foto-skatista rashid absolute">
 
                     </div>
                 </div>
@@ -287,15 +314,16 @@
                         <div class="triangle-down"></div>
                     </div>
                     <div class="group-falas text-white  flex column">
-                        <span>ANDAR DE SKATE
-                            POR AMOR, FAZENDO
-                            AS COISAS CERTAS E NÃO 
-                            QUERER SER MAIS QUE NINGUÉM
-                            AS COISAS VÃO ACONTECENDO NATURALMENTE</span>
-                         <span class="autor fs-p " style="color: #555;">tiago lemos</span>   
+                        <span>Parei e pensei, em meio ao coas meditei
+                            Coloquei o fone de skate e remei
+                            Sem problema me desliguei
+                            Com uma luz no fim do túnel me deparei
+                            E me vi longe de toda aquela zica
+                            Sem nada nem ninguém pra roubar minha brisa</span>
+                         <span class="autor fs-p " style="color: #555;">FEBEM</span>   
                     </div>
 
-                    <div class="foto-skatista absolute">
+                    <div class="foto-skatista febem absolute">
 
                     </div>
                 </div>
@@ -340,6 +368,43 @@
 
 <script src="./js/swiperHistoria.js"></script>
 <script src="./js/swiperLugares.js"></script>
+
+<script>
+    let lista = document.getElementById('lista_sections');
+    const user = JSON.parse(sessionStorage.getItem('user'))
+
+    if(user){
+        btn_login.style.display = 'none';
+        nav_user.style.display ='flex'
+        user_name.innerText = user.userName
+        if(user.foto){
+            foto_user_feed.style.backgroundImage = `url('./uploads/${user.foto}')`
+            perfil_li.href = `./perfil/${user.id}`
+            a_feed.href = `./feed`;
+        }
+    }
+    function changeSection(index){
+        let lis = lista.querySelectorAll('li');
+        for(let i =0; i < lis.length; i++){
+            lis[i].classList.remove('active');
+            if(i == index){
+                lis[i].classList.add('active');
+            }
+        }
+        
+    }
+    const menuNav = document.querySelector('.menu-nav');
+
+    const abrirOpcoes = () => {
+        menuNav.classList.toggle('toggle');
+    }
+</script>
+
+<script src="./js/navActives.js"></script>
+
+
+
+<script src="./js/Login/logout.js"></script>
     
 
  

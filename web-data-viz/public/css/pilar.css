@@ -8,6 +8,90 @@
     justify-content: center;
     align-items: flex-end;
 }
+html {
+    scroll-behavior: smooth;
+  }
+
+  
+.nav-head{
+    height: 100px;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+     font-style: normal;
+    display: flex;
+    align-items: center;
+    
+    & .menu-nav{
+        right: 5%;
+        top: 73px;
+        z-index: 3;
+        background-color: var(--light-bg);
+        display: none;
+        border-radius:11px ;
+        box-shadow: 0px 4px 10px 5px rgba(158, 157, 157, 0.3);
+        animation: showMenu 0.1s linear;
+
+    }
+
+    & .menu-nav ul {
+        list-style: none;
+        animation: showMenu 0.1s linear;
+        
+    }
+
+    & .menu-nav ul li:hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & .menu-nav ul li{
+        padding: 10px !important;
+        border-radius: 11px;
+    }
+
+
+
+    & .menu-nav ul li a{
+        text-decoration: none;
+        color: var(--dark-font);
+        font-family: 'Poppins';
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+    }
+
+    &  .toggle{
+        display: block;
+    }
+
+    & i {
+        cursor: pointer;
+        backdrop-filter: brightness(0.5);
+        color: #fff;
+    }
+    & span{
+        font-family: 'Poppins';
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+    backdrop-filter: brightness(0.5);
+    color: #fff;
+    }
+}
+
+
+.foto_user{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-image: url('../img/users/perfil/default.png');
+    background-size: cover;
+}
+
+.user-infos{
+    font-size: 20px;
+    gap: 10px;
+}
 
 .header .nav-list{
     background-color: #1E1E1E;
@@ -192,6 +276,95 @@ main{
     padding: 5px;
     border-radius: 11px;
 }
+
+.anos50{
+    background-image: url('../img/anos50.png');
+    filter: grayscale(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    & span{
+        backdrop-filter: brightness(0.5) ;
+        
+    }
+}
+
+.anos70{
+    background-image: url('../img/anos70.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    & span{
+        backdrop-filter: brightness(0.5) ;
+        
+    }
+}
+
+.desc-foto{
+    width: 60%;
+}
+
+.title-foto{
+    width: 60%;
+}
+
+.anos60{
+    background-image: url('../img/anos60.webp');
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    & span{
+        backdrop-filter: brightness(0.5) ;
+        
+    }
+}
+
+.anos80{
+    background-image: url('../img/anos80.jpeg');
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    & span{
+        backdrop-filter: brightness(0.5) ;
+        
+    }
+}
+
+.cbjr{
+    background-image: url('../img/cbjr.jpg');
+}
+
+.rashid{
+    background-image: url('../img/rashid.avif');
+}
+
+.febem{
+    background-image: url('../img/febem.jpg');
+}
+
+.anos00{
+    background-image: url('../img/anos00.jpg');
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    & span{
+        backdrop-filter: brightness(0.5) ;
+        
+    }
+}
+
 
 .bg-primary{
     background-color: var(--primary-color) !important;

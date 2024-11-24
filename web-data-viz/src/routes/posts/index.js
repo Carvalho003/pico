@@ -13,6 +13,14 @@ router.post('/share/:postId/:userId', (req, res) => {
     controller.sharePublicacao(req, res)
 })
 
+router.get('/graficoQtdPosts', (req, res) => {
+    controller.getQtdPostsUltimosDias(req, res);
+})
+
+router.get('/graficoMedia', (req, res) => {
+    controller.getMediaPostPorUsuario(req, res);
+})
+
 router.get('/seguindo/:userLogadoId', (req, res) => {
     console.log(req.params)
     controller.getPublicacoesSeguindo(req, res);

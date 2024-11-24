@@ -1,5 +1,21 @@
 const model = require('../models/Post');
 
+const getQtdPostsUltimosDias =(req, res) => {
+    model.getQtdPostsUltimosDias().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
+const getMediaPostPorUsuario =(req, res) => {
+    model.getMediaPostPorUsuario().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 const getPublicacoesByUserId = async (req, res) =>{
     const userId = req.params.userId;
     const userLogadoId = req.params.userLogadoId;
@@ -320,5 +336,7 @@ module.exports = {
     storePublicacao,
     getPublicacoes,
     getPublicacaoById,
-    sharePublicacao
+    sharePublicacao,
+    getQtdPostsUltimosDias,
+    getMediaPostPorUsuario
 }

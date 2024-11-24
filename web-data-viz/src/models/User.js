@@ -2,11 +2,16 @@
 const database = require('../database/config');
 
 
+
 const setFoto = (foto, userId) => {
         const sql = `UPDATE user SET foto = '${foto}' WHERE id = ${userId}`;
         return database.executar(sql)
 }
 
+const getUsersHoje = () => {
+        const sql = `SELECT COUNT(id) as usuarios FROM user WHERE created_at BETWEEN DATE_SUB(now(), INTERVAL 1 DAY) AND now()`
+        return database.executar(sql);
+}
 const setFotoCapa = (foto, userId) => {
         const sql = `UPDATE user SET fotoCapa = '${foto}' WHERE id = ${userId}`;
         return database.executar(sql)
@@ -15,6 +20,12 @@ const setFotoCapa = (foto, userId) => {
 const setNome = (nome, userId) => {
         const sql = `UPDATE user SET nome = '${nome}' WHERE id = ${userId}`;
         return database.executar(sql)
+}
+
+const getMesComMaisUsuariosCadastrados = () => {
+        const sql = `SELECT mes_ano  FROM usuarios_por_mes_ano
+WHERE usuarios = (SELECT MAX(usuarios) FROM usuarios_por_mes_ano);`
+return database.executar(sql)
 }
 
 
@@ -76,6 +87,16 @@ const getById = async (id) => {
 
 }
 
+const countUsers = () => {
+        const sql = `SELECT COUNT(id) as usuarios FROM user`
+        return database.executar(sql);
+}
+
+const getPorcentagemSobUltimoMes= () => {
+        const sql = `select *  from porcentagem_usuarios_sob_ultimo_mes`
+        return database.executar(sql)
+}
+
 const setEmail = (email, userId) => {
         const sql = `UPDATE user SET email = '${email}' WHERE id = ${userId}`;
         return database.executar(sql);
@@ -97,5 +118,9 @@ module.exports = {
     setFotoCapa,
     setNome,
     setEmail,
-    setPassword
+    setPassword,
+    countUsers,
+    getPorcentagemSobUltimoMes,
+    getMesComMaisUsuariosCadastrados,
+    getUsersHoje
 }

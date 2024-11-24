@@ -15,6 +15,20 @@ const countSeguidoresByUserId = async (req, res) => {
 
 }
 
+const getUsuariosComMaisSeguidores =(req, res) => {
+    model.getUsuariosComMaisSeguidores().then(response => {
+
+        res.json(response);
+    }).catch(e => {
+        res.json({
+            message: 'Erro interno no servidor',
+            error: e
+        })
+    })
+}
+
+
+
 const setVisto = (req, res) => {
     const userId = req.params.userId;
     const userLogadoId = req.params.userLogadoId;
@@ -211,5 +225,6 @@ module.exports = {
     seguir,
     deixarSeguir,
     getSugestoes,
-    setVisto
+    setVisto,
+    getUsuariosComMaisSeguidores
 }

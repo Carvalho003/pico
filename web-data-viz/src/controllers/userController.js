@@ -2,6 +2,38 @@ const model = require('../models/User');
 const  multer = require('multer');
 const path = require('path')
 
+const countUsers = (req, res) => {
+    model.countUsers().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
+const getUsersHoje = (req, res) => {
+    model.getUsersHoje().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
+const getPorcentagemSobUltimoMes = (req, res) => {
+    model.getPorcentagemSobUltimoMes().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
+const getMesComMaisUsuariosCadastrados = (req, res) => {
+    model.getMesComMaisUsuariosCadastrados().then(response => {
+        res.json(response[0])
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, path.join(__dirname, '../../public/uploads')); // Caminho onde as imagens serão salvas
@@ -314,5 +346,9 @@ module.exports = {
     setFotoCapa,
     setNome,
     setEmail,
-    setSenha
+    setSenha,
+    countUsers,
+    getPorcentagemSobUltimoMes,
+    getMesComMaisUsuariosCadastrados,
+    getUsersHoje
 }

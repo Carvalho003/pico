@@ -8,6 +8,22 @@ router.post('/', async (req, res) => {
     userController.store(req, res);
 });
 
+router.get('/count', (req, res) => {
+    userController.countUsers(req, res);
+})
+
+router.get('/porcentagem', (req, res) => {
+    userController.getPorcentagemSobUltimoMes(req, res);
+})
+
+router.get('/hoje', (req, res) => {
+    userController.getUsersHoje(req, res);
+})
+
+router.get('/mes', (req, res) => {
+    userController.getMesComMaisUsuariosCadastrados(req, res);
+})
+
 router.put("/:userId/nome", (req, res) => {
     userController.setNome(req, res);
 })

@@ -1,6 +1,24 @@
 const database = require('../database/config');
 
 
+const getQtdPostsUltimosDias = () => {
+    const sql = `SELECT (select * from five_days) as five,
+(select * from four_days) as four,
+(select * from three_days) as three,
+(select * from two_days) as two, 
+(select * from one_day) as one`
+return database.executar(sql)
+}
+
+const getMediaPostPorUsuario =() => {
+    const sql = `select 
+(select round(avg(posts), 1) from post_one_day) as one,
+(select round(avg(posts), 1) from post_two_days) as two,
+(select round(avg(posts), 1) from post_three) as three,
+(select round(avg(posts), 1) from post_four) as four,
+(select round(avg(posts), 1) from post_five) as five;`
+return database.executar(sql)
+}
 
 const getPublicacoesById =  (userId, userLogadoId) =>{
     
@@ -252,5 +270,7 @@ module.exports = {
     storePublicacao,
     getPublicacoes,
     getPublicacaoById,
-    sharePublicacao
+    sharePublicacao,
+    getQtdPostsUltimosDias,
+    getMediaPostPorUsuario
 }

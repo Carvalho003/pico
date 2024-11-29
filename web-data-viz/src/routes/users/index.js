@@ -8,6 +8,10 @@ router.post('/', async (req, res) => {
     userController.store(req, res);
 });
 
+router.get('/maisPostagens', (req, res) => {
+    userController.getUserComMaisPostagens(req, res)
+})
+
 router.get('/count', (req, res) => {
     userController.countUsers(req, res);
 })

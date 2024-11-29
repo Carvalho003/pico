@@ -1,6 +1,11 @@
 const database = require('../database/config');
 
 
+const getPostsComMaisInteracoes = () => {
+    const sql = `SELECT * FROM posts_com_mais_interacoes;`;
+    return database.executar(sql)
+}
+
 const getQtdPostsUltimosDias = () => {
     const sql = `SELECT (select * from five_days) as five,
 (select * from four_days) as four,
@@ -272,5 +277,6 @@ module.exports = {
     getPublicacaoById,
     sharePublicacao,
     getQtdPostsUltimosDias,
-    getMediaPostPorUsuario
+    getMediaPostPorUsuario,
+    getPostsComMaisInteracoes
 }

@@ -18,6 +18,14 @@ const getUsersHoje = (req, res) => {
     })
 }
 
+const getUserComMaisPostagens = (req, res) => {
+    model.getUserComMaisPostagens().then(response => {
+        res.json(response)
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 const getPorcentagemSobUltimoMes = (req, res) => {
     model.getPorcentagemSobUltimoMes().then(response => {
         res.json(response[0])
@@ -350,5 +358,6 @@ module.exports = {
     countUsers,
     getPorcentagemSobUltimoMes,
     getMesComMaisUsuariosCadastrados,
-    getUsersHoje
+    getUsersHoje,
+    getUserComMaisPostagens
 }

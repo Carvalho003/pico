@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           cropper = new Cropper(image, {
             aspectRatio: 1, // Ajuste a proporção se necessário
-            viewMode: 1
+            viewMode: 1,
+            background:false
           });
         };
         reader.readAsDataURL(file);
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (cropper) {
         const croppedCanvas = cropper.getCroppedCanvas();
         croppedCanvas.toBlob((blob) => {
-          console.log(blob)
+          
           const formData = new FormData();
           formData.append("image", blob, `perfil${user.id}.png`);
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
               method: 'PUT',
               body: formData
           }).then(res => res.json()).then(res => {
-              console.log(res);
+              
               user.foto = res.file
               sessionStorage.setItem("user", JSON.stringify(user))
               disableEditarPerfil()
@@ -108,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
                 cropper = new Cropper(image, {
                     aspectRatio:16 / 9,
-                    viewMode: 1
+                    viewMode: 1,
+                    background:false
                 });
             }
             reader.readAsDataURL(file)

@@ -329,6 +329,14 @@ const sharePublicacao = (req, res) => {
     })
 }
 
+const getPostsComMaisInteracoes = (req, res) => {
+    model.getPostsComMaisInteracoes().then(response =>{
+        res.json(response)
+    }).catch(e => {
+        res.json(e)
+    })
+}
+
 
 module.exports = {
     getPublicacoesByUserId,
@@ -338,5 +346,6 @@ module.exports = {
     getPublicacaoById,
     sharePublicacao,
     getQtdPostsUltimosDias,
-    getMediaPostPorUsuario
+    getMediaPostPorUsuario,
+    getPostsComMaisInteracoes
 }

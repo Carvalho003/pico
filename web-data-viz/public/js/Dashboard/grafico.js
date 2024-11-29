@@ -7,6 +7,41 @@ const countUser = () => {
     })
 }
 
+const fillUsersComMaisPosts = (data) => {
+    let html = ``
+    data.map(user => {
+        let id = user.id;
+        let foto = user.foto 
+        let posts = user.posts
+        let userName = user.userName;
+
+        let styleFoto = `style="cursor:pointer"`
+        if(foto){
+            styleFoto =`style="cursor:pointer;background-image:url('../uploads/${foto}')"`
+        }
+
+        html += `<div class="flex mais_posts column center">
+                    <div onclick="perfil(${id})" id="foto_user_feed" ${styleFoto} class="foto_user foto-lg">
+                                        
+                    </div>
+                    <span class="text-fade">${userName}</span>
+                    <span class="">${posts}</span>
+                    </div>`
+    })
+    div_mais_posts.innerHTML = html
+
+}
+
+
+const getUserComMaisPostagens = () => {
+    fetch('http://localhost:3333/api/users/maisPostagens').then(res => res.json()).then(res =>{
+        console.log(res
+
+        )
+        fillUsersComMaisPosts(res)
+    })
+}
+
 
 const getUsuariosComMaisSeguidores = () => {
     fetch('http://localhost:3333/api/seguidores/users').then(res => res.json()).then(res =>{
@@ -67,7 +102,7 @@ const fillUsersSeguidores = (data) => {
         let id = user.id
         let date = user.date
         let seguidores = user.seguidores
-
+        
         let imagem = ``;
 
     if(foto){
@@ -109,6 +144,60 @@ const getMesComMaisUsuariosCadastrados = () => {
 const user = JSON.parse(sessionStorage.getItem('user'))
 
 
+const getPostsComMaisInteracoes = () => {
+    fetch('http://localhost:3333/api/posts/maisInteracoes').then(res => res.json()).then(res => {
+        
+        fillPostsMaisInteracoes(res)
+        console.log(res)
+    })
+}
+
+
+const fillPostsMaisInteracoes = (data) => {
+    let html = ``
+
+    data.map(post => {
+
+    let postId = post.id 
+    let date = post.date 
+    let comentarios = post.comentarios 
+    let likes = post.likes
+    let userName = post.userName
+    let foto = post.foto
+    let userId = post.userId
+
+    let styleFoto = `style="cursor:pointer"`
+
+    if(foto){
+        styleFoto = `style="background-image:url('../uploads/${foto}'); cursor:pointer"`
+    }
+    html += ` <div class="flex post_space column w-100 a-center">
+                        <div class="row flex between w-100">
+                            <span class="item-lg">Usuário</span>
+                            <span class="item">Data</span>
+                            <span class="item">Likes</span>
+                            <span class="item">Comentários</span>
+                        </div>
+                        <div class="row between a-center flex w-100">
+                            <div class="item-lg a-center between flex row">
+                                
+                                <div ${styleFoto} onclick="perfil(${userId})" id="foto_user_feed" class="foto_user">
+                                    
+                                </div>
+                                <p class="w-100">${userName}</p>
+                            </div>
+                            <span class="item">${date}</span>
+                            <span class="item">${likes}</span>
+                            <span class="item">${comentarios}</span>
+                        </div>
+                        <div class="flex row jf-end w-100">
+                            <button onclick="carregarPublicacao(${postId})" class="btn-seguir">Ver</button>
+                        </div>
+                    </div>`
+    })
+
+    posts_div.innerHTML += html
+}
 
 const getQtdPostsUltimosDias =() => {
 
@@ -228,3 +317,5 @@ getQtdPostsUltimosDias()
 
 getMediaPostPorUsuario()
 getUsuariosComMaisSeguidores()
+getPostsComMaisInteracoes()
+getUserComMaisPostagens()

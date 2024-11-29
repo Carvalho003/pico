@@ -105,7 +105,7 @@ ORDER BY seguidores DESC
 
 
 CREATE VIEW posts_com_mais_interacoes AS 
-SELECT p.id, u.userName, DATE_FORMAT(p.created_at, '%d %b') as date, 
+SELECT p.id, u.userName, u.foto, u.id as userId,  DATE_FORMAT(p.created_at, '%d %b') as date, 
 (SELECT COUNT(i.id) FROM interacao as i
 JOIN post as sub_p 
 ON sub_p.id = i.post_id AND sub_p.id = p.id

@@ -66,7 +66,7 @@ WHEN timestampdiff(MONTH, i.dtHora, now()) <= 0
 THEN concat(timestampdiff(WEEK, i.dtHora, now()), ' semanas atrás')
 ELSE concat(timestampdiff(MONTH, i.dtHora, now()), ' meses atrás')
 END AS tempo, i.visto as visto
-  FROM interacao as i
+FROM interacao as i
 JOIN user u
 ON u.id = i.user_id
 JOIN post p 

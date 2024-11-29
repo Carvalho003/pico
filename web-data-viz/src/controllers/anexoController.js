@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      cb(null, uniqueSuffix + '-' + file.originalname); // Define um nome único para cada arquivo
+      cb(null, uniqueSuffix); // Define um nome único para cada arquivo
     }
   });
   const upload = multer({ storage: storage });
@@ -33,7 +33,7 @@ const storeAnexo = async(req,res) =>{
 
             const response = await model.storeAnexo(file.filename, postId)
     
-                console.log(response, "adsadsndjakndsjkdn")
+                
             
         }))
         res.json({

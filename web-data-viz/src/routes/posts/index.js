@@ -5,6 +5,10 @@ const controller = require('../../controllers/postController')
 const router = express.Router();
 
 
+router.get("/maisInteracoes", (req, res) => {
+    controller.getPostsComMaisInteracoes(req, res)
+})
+
 router.get('/perfil/:userId/:userLogadoId', (req, res) => {
     controller.getPublicacoesByUserId(req, res)
 })

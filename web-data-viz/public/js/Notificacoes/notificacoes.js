@@ -60,7 +60,7 @@ const getNotificacoes = () => {
 
 const fillNotif = (data) => {
     let html = ``
-
+    if(data.length > 0){
     data.map(notificacao => {
         let tempo = notificacao.tempo 
         let userId = notificacao.user_id
@@ -97,9 +97,12 @@ const fillNotif = (data) => {
                         </div>
                     </div>`
     })
+    
 
     html += `<div style="cursor:pointer" onclick="moreNotif()" class="mostrar">Mostrar mais...</div>`
-
+    }else{
+        html += `Não há notificações`
+    }
     div_notif.innerHTML = html
 
 

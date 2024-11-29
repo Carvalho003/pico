@@ -8,6 +8,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../../css/root.css">
     <link rel="stylesheet" href="../../css/pilar.css">
+    <link rel="stylesheet" href="../../css/modal.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/feed.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -21,8 +22,8 @@
             <div id="foto_perfil_user" class="foto_user foto-side"></div>
 
             <div class="group-names flex column w-100 a-center jf-center">
-                <span class="user_nome">Hugo Carvalho</span>
-                <span class="user_name">@carvalsk8</span>
+                <span id="span_nome" class="user_nome">Hugo Carvalho</span>
+                <span id="span_user_name" class="user_name">@carvalsk8</span>
             </div>
             <nav class="nav-options flex a-center jf-center column">
                 <ul class="flex a-center column">
@@ -30,7 +31,7 @@
                         <a class="flex row a-center" href="../feed"><i class='bx bxs-home-alt-2'></i><span>Feed</span></a>
                     </li>
                     <li>
-                        <a class="flex row a-center" onclick="openList()" href="#"><i class='bx bxs-bell' ></i><span>Notificações</span></a>
+                        <a class="flex row a-center" onclick="openList()" href="#"><i class='bx bxs-bell' ></i><span id="span_notif">Notificações</span></a>
                     </li>
                     <li id="perfil_li" >
                         <a class="flex row a-center" id="perfil_link" ><i class='bx bxs-user'></i><span>Perfil</span></a>
@@ -50,7 +51,7 @@
             
         </div>
     </nav>
-    <main class="dash  flex column ">
+    <main id="main_dash" class="dash  flex column ">
         <div class="w-100 title-area flex a-center jf-start">
             <span>Dashboard</span>
         </div>
@@ -68,7 +69,7 @@
                     <span class="text-circle">Aumento sob o último mês</span>
                     <span class="metrica-circle" id="span_aumento">10%</span>
                 </div>
-                <div class="circle bg-primary flex column jf-center a-center">
+                <div class="circle circle-laranja bg-primary flex column jf-center a-center">
                     <span class="text-circle text-white">Novos Hoje</span>
                     <span class="metrica-circle text-white" id="span_novos_hoje">9</span>
                 </div>
@@ -209,77 +210,11 @@
         <div class="dash-wrapper wrapper-bottom flex row">
             <div class="left-dash flex column ">
                 <div class="box large flex column ">
-                    <div class="flex column post-div a-start">
+                    <div id="posts_div" class="flex column post-div a-start">
                     <span class="title-1 text-fade">Posts com mais interações</span>
-                    <div class="flex post_space column w-100 a-center">
-                        <div class="row flex between w-100">
-                            <span class="item-lg">Usuário</span>
-                            <span class="item">Data</span>
-                            <span class="item">Likes</span>
-                            <span class="item">Comentários</span>
-                        </div>
-                        <div class="row between a-center flex w-100">
-                            <div class="item-lg a-center between flex row">
-                                
-                                <div id="foto_user_feed" class="foto_user">
-                                    
-                                </div>
-                                <p class="w-100">@carvalsk8</p>
-                            </div>
-                            <span class="item">23 nov</span>
-                            <span class="item">11</span>
-                            <span class="item">32</span>
-                        </div>
-                        <div class="flex row jf-end w-100">
-                            <button class="btn-seguir">Ver</button>
-                        </div>
-                    </div>
-                    <div class="flex post_space column w-100 a-center">
-                        <div class="row flex between w-100">
-                            <span class="item-lg">Usuário</span>
-                            <span class="item">Data</span>
-                            <span class="item">Likes</span>
-                            <span class="item">Comentários</span>
-                        </div>
-                        <div class="row between a-center flex w-100">
-                            <div class="item-lg a-center between flex row">
-                                
-                                <div id="foto_user_feed" class="foto_user">
-                                    
-                                </div>
-                                <p class="w-100">@carvalsk8</p>
-                            </div>
-                            <span class="item">23 nov</span>
-                            <span class="item">11</span>
-                            <span class="item">32</span>
-                        </div>
-                        <div class="flex row jf-end w-100">
-                            <button class="btn-seguir">Ver</button>
-                        </div>
-                    </div>
-                    <div class="flex post_space column w-100 a-center">
-                        <div class="row flex between w-100">
-                            <span class="item-lg">Usuário</span>
-                            <span class="item">Data</span>
-                            <span class="item">Likes</span>
-                            <span class="item">Comentários</span>
-                        </div>
-                        <div class="row between a-center flex w-100">
-                            <div class="item-lg a-center between flex row">
-                                
-                                <div id="foto_user_feed" class="foto_user">
-                                    
-                                </div>
-                                <p class="w-100">@carvalsk8</p>
-                            </div>
-                            <span class="item">23 nov</span>
-                            <span class="item">11</span>
-                            <span class="item">32</span>
-                        </div>
-                        <div class="flex row jf-end w-100">
-                            <button class="btn-seguir">Ver</button>
-                        </div>
-                    </div>
+                   
+                    
+                    
                 </div>
                
     
@@ -291,7 +226,7 @@
             <div class="right-dash flex column">
                 <div class="box v-large flex column  a-center">
                     <span class="title-1 text-fade">Usuários com mais postagens</span>
-                    <div class="flex div_users_mais_posts row">
+                    <div id="div_mais_posts" class="flex div_users_mais_posts row">
                     <div class="flex mais_posts column center">
                     <div id="foto_user_feed" class="foto_user foto-lg">
                                         
@@ -318,6 +253,11 @@
             </div>
             </div>
     </main>
+
+
+    <div id="div_loading" style="display: flex;animation: none;" class="backdrop">
+        <img src="../../img/load2-unscreen.gif" width="300px" alt="">
+    </div>
 </body>
 </html>
 
@@ -332,3 +272,23 @@
 <script src="../../js/Fill/link_pilar.js"></script>
 
 <script src="../../js/modal_pesquisa.js"></script>
+
+<script src="../../js/Notificacoes/notificacoes.js"></script>
+
+
+<script>
+    main_dash.style.opacity = '0'
+    
+    setTimeout(() =>{
+        main_dash.style.opacity = '1'
+        div_loading.style.display = 'none'
+    }, 1.9* 1000)
+    console.log(user)
+    if(user.foto){
+        console.log("afs")
+        foto_perfil_user.style.backgroundImage = `url('../../uploads/${user.foto}')`
+    }
+
+    span_nome.innerText = user.nome
+    span_user_name.innerText = user.userName
+</script>

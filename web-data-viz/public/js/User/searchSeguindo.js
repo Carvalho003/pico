@@ -12,6 +12,10 @@ inputSearch.oninput = () => {
 }
 
 
+const perfil = id =>{
+    window.location.href = `../perfil/${id}`;
+}
+
 
 let userId = (window.location.href).split('/')
 userId = userId[userId.length -1];

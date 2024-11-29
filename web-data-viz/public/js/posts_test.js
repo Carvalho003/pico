@@ -20,6 +20,7 @@ const  carregarAnexos = (element) => {
     }else{
 
     if(tamanhoFor >=4){
+        console.log("temm")
         espacos[3].innerHTML = `<div id="div-numero" class=" flex center maisNumero-div"><span id="maisFotos" class='fs-m text-white maisNumero'>+${espacos.length - 3}</span></div>`
         tamanhoFor = 4;
     }
@@ -55,7 +56,7 @@ const expandir = element => {
         url = url.replaceAll('"', "");
         url = url.split("/")
         url = url[url.length -1]; 
-        wrapper_expand.innerHTML += `<div style="height:80vh;display:flex !important; width:100%;padding:20px !important" class="swiper-slide  flex jf-center a-center"><img src="../uploads/anexos/${url}" /></div>`
+        wrapper_expand.innerHTML += `<div style="height:80vh;display:flex !important; width:100%;padding:20px !important" class="swiper-slide  flex jf-center a-center"><img style="max-width:60vw; min-width:30vw" src="../uploads/anexos/${url}" /></div>`
         
         
         var swiperExpand = new Swiper(".expand", {

@@ -49,6 +49,11 @@ const authenticate = async (email, password) => {
    
 }
 
+const getUserComMaisPostagens = () => {
+        const sql = `select * from users_com_mais_postagens`
+        return database.executar(sql)
+}
+
 const search = async(search, limit, logado_id) => {
     
     
@@ -122,5 +127,6 @@ module.exports = {
     countUsers,
     getPorcentagemSobUltimoMes,
     getMesComMaisUsuariosCadastrados,
-    getUsersHoje
+    getUsersHoje,
+    getUserComMaisPostagens
 }
